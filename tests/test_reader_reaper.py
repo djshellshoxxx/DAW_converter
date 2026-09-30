@@ -442,6 +442,162 @@ def test_plugin_track_assignment(tmp_path: Path, reader: ReaperReader):
     assert result.plugins[1].name == "PluginB"
 
 
+def test_media_item_in_track_relative_file(tmp_path: Path, reader: ReaperReader):
+    """Test parsing media FILE inside ITEM in track with relative path."""
+    audio_dir = tmp_path / "Audio"
+    audio_dir.mkdir()
+    audio_file = audio_dir / "kick.wav"
+    audio_file.write_bytes(b"fake audio")
+
+    rpp_file = tmp_path / "project.rpp"
+    rpp_file.write_text(
+        '<REAPER_PROJECT 0.1 "7.22/win64" 1726000000\n'
+        "<TRACK\n"
+        '  NAME "Track 1"\n'
+        "  <ITEM\n"
+        '    <SOURCE WAVE\n'
+        '      FILE "Audio/kick.wav"\n'
+        "    >\n"
+        "  >\n"
+        "</TRACK>\n"
+        ">\n",
+        encoding="utf-8",
+    )
+
+    result = reader.read(rpp_file)
+
+    assert len(result.media) >= 1
+    paths = [m.path for m in result.media]
+    assert "Audio/kick.wav" in paths
+
+    # Check metadata
+    media = [m for m in result.media if m.path == "Audio/kick.wav"][0]
+    assert media.exists is True
+    assert media.inside_project_folder is True
+    assert media.size_bytes == 10
+
+
+def test_media_item_in_track_absolute_file(tmp_path: Path, reader: ReaperReader):
+    """Test parsing media FILE inside ITEM with absolute path."""
+    audio_dir = tmp_path / "Audio"
+    audio_dir.mkdir()
+    audio_file = audio_dir / "snare.wav"
+    audio_file.write_bytes(b"fake audio data")
+
+    rpp_file = tmp_path / "project.rpp"
+    rpp_file.write_text(
+        f'<REAPER_PROJECT 0.1 "7.22/win64" 1726000000\n'
+        "<TRACK\n"
+        '  NAME "Track 1"\n'
+        "  <ITEM\n"
+        '    <SOURCE WAVE\n'
+        f'      FILE "{audio_file.as_posix()}"\n'
+        "    >\n"
+        "  >\n"
+        "</TRACK>\n"
+        ">\n",
+        encoding="utf-8",
+    )
+
+    result = reader.read(rpp_file)
+
+    assert len(result.media) >= 1
+    media = result.media[0]
+    assert media.exists is True
+    assert media.size_bytes == 15
+
+
+def test_media_section_nested_source(tmp_path: Path, reader: ReaperReader):
+    """Test parsing media from SECTION-nested SOURCE."""
+    audio_dir = tmp_path / "Audio"
+    audio_dir.mkdir()
+    audio_file = audio_dir / "loop.wav"
+    audio_file.write_bytes(b"loop data")
+
+    rpp_file = tmp_path / "project.rpp"
+    rpp_file.write_text(
+        '<REAPER_PROJECT 0.1 "7.22/win64" 1726000000\n'
+        "<TRACK\n"
+        '  NAME "Track 1"\n'
+        "  <ITEM\n"
+        '    <SOURCE SECTION\n'
+        '      <SOURCE WAVE\n'
+        '        FILE "Audio/loop.wav"\n'
+        "      >\n"
+        "    >\n"
+        "  >\n"
+        "</TRACK>\n"
+        ">\n",
+        encoding="utf-8",
+    )
+
+    result = reader.read(rpp_file)
+
+    assert len(result.media) >= 1
+    paths = [m.path for m in result.media]
+    assert "Audio/loop.wav" in paths
+
+
+def test_media_dedupe(tmp_path: Path, reader: ReaperReader):
+    """Test that duplicate media paths are deduplicated."""
+    audio_dir = tmp_path / "Audio"
+    audio_dir.mkdir()
+    audio_file = audio_dir / "sample.wav"
+    audio_file.write_bytes(b"sample")
+
+    rpp_file = tmp_path / "project.rpp"
+    rpp_file.write_text(
+        '<REAPER_PROJECT 0.1 "7.22/win64" 1726000000\n'
+        "<TRACK\n"
+        '  NAME "Track 1"\n'
+        "  <ITEM\n"
+        '    <SOURCE WAVE\n'
+        '      FILE "Audio/sample.wav"\n'
+        "    >\n"
+        "  >\n"
+        "  <ITEM\n"
+        '    <SOURCE WAVE\n'
+        '      FILE "Audio/sample.wav"\n'
+        "    >\n"
+        "  >\n"
+        "</TRACK>\n"
+        ">\n",
+        encoding="utf-8",
+    )
+
+    result = reader.read(rpp_file)
+
+    # Should only have one entry for the same file
+    paths = [m.path for m in result.media]
+    assert paths.count("Audio/sample.wav") == 1
+
+
+def test_media_missing_file(tmp_path: Path, reader: ReaperReader):
+    """Test parsing media FILE that doesn't exist."""
+    rpp_file = tmp_path / "project.rpp"
+    rpp_file.write_text(
+        '<REAPER_PROJECT 0.1 "7.22/win64" 1726000000\n'
+        "<TRACK\n"
+        '  NAME "Track 1"\n'
+        "  <ITEM\n"
+        '    <SOURCE WAVE\n'
+        '      FILE "Audio/missing.wav"\n'
+        "    >\n"
+        "  >\n"
+        "</TRACK>\n"
+        ">\n",
+        encoding="utf-8",
+    )
+
+    result = reader.read(rpp_file)
+
+    assert len(result.media) >= 1
+    media = [m for m in result.media if m.path == "Audio/missing.wav"][0]
+    assert media.exists is False
+    assert media.inside_project_folder is True  # Still inside project folder
+    assert media.size_bytes is None
+
+
 def test_can_read_confidence(tmp_path: Path, reader: ReaperReader):
     """Test can_read method returns proper confidence."""
     rpp_file = tmp_path / "test.rpp"

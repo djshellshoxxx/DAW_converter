@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rackcheck</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="app">
+  <nav id="sidebar" aria-label="Main">
+    <div class="brand">Rackcheck</div>
+    <button class="nav" data-view="home" type="button">Home</button>
+    <button class="nav" data-view="recent" type="button">Recent</button>
+    <button class="nav" data-view="installed" type="button">Installed Plugins</button>
+    <button class="nav" data-view="settings" type="button">Settings</button>
+    <div class="grow"></div>
+    <div id="side-status" class="side-status" aria-live="polite"></div>
+  </nav>
+  <main id="main" tabindex="-1"></main>
+  <aside id="panel" class="panel" aria-label="Details" hidden></aside>
+</div>
+<div id="dropveil" class="dropveil" hidden><div>Drop to scan</div></div>
+<div id="toasts" class="toasts" aria-live="polite"></div>
+<div id="menu" class="ctxmenu" hidden></div>
+<script src="app.js"></script>
+</body>
+</html>

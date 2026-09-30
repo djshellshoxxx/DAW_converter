@@ -15,66 +15,17 @@ from pathlib import Path
 from typing import Any
 
 from . import ENGINE_VERSION
-from .detect import DAW_NAMES, ProjectFormat
-from .errors import (
-    INVENTORY_UNREADABLE,
-    NO_PROJECT_FOUND,
-    READER_NOT_AVAILABLE,
-    UNSUPPORTED_FORMAT,
-    EngineError,
-)
+from .errors import INVENTORY_UNREADABLE, NO_PROJECT_FOUND, EngineError
 from .export import write_csv, write_plugin_list
-from .inputs import ProjectCandidate, resolve
+from .inputs import resolve
 from .inventory.scan import InstalledPlugin, load_inventory, scan_installed
 from .kb import KnowledgeBase
-from .readers import reader_for
-from .report import ReportOptions, build_report, plugin_group_key, redact_report
+from .report import ReportOptions, plugin_group_key, redact_report
+from .service import scan_candidate as _scan_candidate
 
 EXIT_OK = 0
 EXIT_ERROR = 1
 EXIT_USAGE = 2
-
-
-def _scan_candidate(
-    candidate: ProjectCandidate,
-    inventory: list[InstalledPlugin] | None,
-    inventory_scanned_at: str | None,
-    kb: KnowledgeBase | None,
-    options: ReportOptions,
-) -> dict[str, Any]:
-    det = candidate.detection
-    entry: dict[str, Any] = {"detection": candidate.to_dict()}
-    if det.format == ProjectFormat.UNSUPPORTED:
-        entry.update(
-            EngineError(
-                UNSUPPORTED_FORMAT, "We can't read this file type yet.", {"reason": det.reason}
-            ).to_dict()
-        )
-        return entry
-    reader = reader_for(det.format)
-    if reader is None:
-        daw = DAW_NAMES.get(det.format, det.format.value)
-        entry.update(
-            EngineError(
-                READER_NOT_AVAILABLE,
-                f"{daw} projects are recognised but can't be read in this version yet.",
-                {"format": det.format.value},
-            ).to_dict()
-        )
-        return entry
-    try:
-        scan = reader.read(Path(det.path))
-        entry["report"] = build_report(
-            scan,
-            det.to_dict(),
-            inventory=inventory,
-            inventory_scanned_at=inventory_scanned_at,
-            kb=kb,
-            options=options,
-        )
-    except EngineError as exc:
-        entry.update(exc.to_dict())
-    return entry
 
 
 def _load_inventory(args: argparse.Namespace) -> tuple[list[InstalledPlugin] | None, str | None]:

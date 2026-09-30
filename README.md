@@ -38,11 +38,11 @@ python -m venv .venv
 
 # Windows
 .venv\Scripts\activate
-pip install -e .[dev]
+pip install -e .[dev,gui]
 
 # macOS / Linux
 source .venv/bin/activate
-pip install -e .[dev]
+pip install -e .[dev,gui]
 ```
 
 ### Pre-built Installers (Phase 2)
@@ -68,6 +68,18 @@ rackcheck scan ~/Music/sessions/
 # Detect format without reading (fast)
 rackcheck detect ~/Music/my-track.als
 ```
+
+### GUI Usage
+
+```bash
+# Needs the optional gui extra (pywebview): pip install -e .[gui]
+rackcheck-gui            # or: python -m rackcheck_gui
+```
+
+Drop a project file, folder or zip on the window (or use Browse). Exports use the same
+engine writers as the CLI. Settings, recent reports and the plugin inventory are stored in
+`%APPDATA%\Rackcheck` (`~/Library/Application Support/Rackcheck` on macOS); set
+`RACKCHECK_DATA_DIR` to use another folder.
 
 ### Run Tests
 

@@ -484,3 +484,15 @@ class TestRecursionDepth:
         # Scan with max_depth=10 (should find it)
         plugins = scan_installed(dirs, max_depth=10)
         assert len(plugins) == 1
+
+
+def test_scan_installed_records_bundle_id(tmp_path):
+    comp = tmp_path / "Foo.component"
+    (comp / "Contents").mkdir(parents=True)
+    (comp / "Contents" / "Info.plist").write_bytes(
+        plistlib.dumps({"CFBundleIdentifier": "com.fabfilter.Foo", "CFBundleName": "Foo"}))
+    found = scan_installed({PluginFormat.AU: [tmp_path]})
+    assert [p.bundle_id for p in found] == ["com.fabfilter.Foo"]
+    inv = tmp_path / "inv.json"
+    save_inventory(found, inv)
+    assert load_inventory(inv)[0].bundle_id == "com.fabfilter.Foo"

@@ -30,10 +30,10 @@ def test_scan_json_reports_reader_not_available(tmp_path: Path, capsys):
 
 def test_scan_json_reads_ableton(tmp_path: Path, capsys):
     write_als(tmp_path / "Song.als")
-    code = main(["scan", str(tmp_path / "Song.als"), "--json"])
+    code = main(["scan", str(tmp_path / "Song.als"), "--json", "--no-inventory"])
     out = json.loads(capsys.readouterr().out)
     assert code == 0
-    assert out["scans"][0]["result"]["source"]["daw_version"]
+    assert out["scans"][0]["report"]["source"]["daw_version"]
 
 
 def test_scan_unsupported_file(tmp_path: Path, capsys):

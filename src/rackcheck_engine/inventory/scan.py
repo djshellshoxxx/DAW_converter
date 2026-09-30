@@ -44,6 +44,7 @@ class InstalledPlugin:
     url: str | None = None
     categories: list[str] = field(default_factory=list)
     architectures: list[str] = field(default_factory=list)
+    bundle_id: str | None = None  # CFBundleIdentifier (macOS bundles only)
     source: PluginSource = PluginSource.FILENAME
     confidence: Literal["confirmed", "probable", "heuristic"] = "heuristic"
 
@@ -368,6 +369,13 @@ def scan_installed(
             if dir_path.exists():
                 walk_dir(dir_path, format_type)
 
+    for plugin in plugins:
+        if plugin.bundle_id is None and plugin.path:
+            plist = _read_plist(Path(plugin.path) / "Contents" / "Info.plist")
+            if isinstance(plist, dict):
+                bid = plist.get("CFBundleIdentifier")
+                plugin.bundle_id = bid if isinstance(bid, str) and bid else None
+
     return plugins
 
 
@@ -642,6 +650,7 @@ def load_inventory(path: Path | str) -> list[InstalledPlugin]:
             url=item.get("url"),
             categories=item.get("categories", []),
             architectures=item.get("architectures", []),
+            bundle_id=item.get("bundle_id"),
             source=PluginSource(item.get("source", "filename")),
             confidence=item.get("confidence", "heuristic"),
         )

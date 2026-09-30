@@ -1,0 +1,1275 @@
+[
+  {
+    "id": "fabfilter-pro-q-4",
+    "vendor_id": "fabfilter",
+    "name": "Pro-Q 4",
+    "keys": {
+      "vst3_cid": [],
+      "vst2_unique_id": [],
+      "au": [],
+      "clap_id": [],
+      "aax": []
+    },
+    "homepage": "https://www.fabfilter.com/products/pro-q-4-equalizer-plug-in",
+    "manual_url": null,
+    "category": "effect/eq",
+    "formats": [
+      "vst3",
+      "au",
+      "aax"
+    ],
+    "platforms": [
+      "win",
+      "mac"
+    ],
+    "apple_silicon_native": true,
+    "price_model": "paid",
+    "licensing": [
+      "vendor_serial"
+    ],
+    "status": "active",
+    "successor_id": null,
+    "free_alternatives": [],
+    "last_verified": null,
+    "provenance": "seed",
+    "verified": false
+  },
+  {
+    "id": "xfer-serum",
+    "vendor_id": "xfer-records",
+    "name": "Serum",
+    "keys": {
+      "vst3_cid": [],
+      "vst2_unique_id": [],
+      "au": [],
+      "clap_id": [],
+      "aax": []
+    },
+    "homepage": "https://www.xferrecords.com/products/serum",
+    "manual_url": null,
+    "category": "instrument/synth",
+    "formats": [
+      "vst2",
+      "vst3"
+    ],
+    "platforms": [
+      "win",
+      "mac"
+    ],
+    "apple_silicon_native": true,
+    "price_model": "paid",
+    "licensing": [
+      "vendor_serial"
+    ],
+    "status": "active",
+    "successor_id": null,
+    "free_alternatives": [
+      "vital"
+    ],
+    "last_verified": null,
+    "provenance": "seed",
+    "verified": false
+  },
+  {
+    "id": "valhalla-shimmer",
+    "vendor_id": "valhalla-dsp",
+    "name": "Valhalla Shimmer",
+    "keys": {
+      "vst3_cid": [],
+      "vst2_unique_id": [],
+      "au": [],
+      "clap_id": [],
+      "aax": []
+    },
+    "homepage": "https://www.valhalladsp.com/shop/reverb/valhalla-shimmer/",
+    "manual_url": null,
+    "category": "effect/reverb",
+    "formats": [
+      "vst3",
+      "au"
+    ],
+    "platforms": [
+      "win",
+      "mac"
+    ],
+    "apple_silicon_native": true,
+    "price_model": "paid",
+    "licensing": [
+      "vendor_serial"
+    ],
+    "status": "active",
+    "successor_id": null,
+    "free_alternatives": [],
+    "last_verified": null,
+    "provenance": "seed",
+    "verified": false
+  },
+  {
+    "id": "native-instruments-komplete-kontakt",
+    "vendor_id": "native-instruments",
+    "name": "Komplete Kontakt",
+    "keys": {
+      "vst3_cid": [],
+      "vst2_unique_id": [],
+      "au": [],
+      "clap_id": [],
+      "aax": []
+    },
+    "homepage": "https://www.native-instruments.com/en/products/komplete/",
+    "manual_url": null,
+    "category": "instrument/sampler",
+    "formats": [
+      "vst3",
+      "au",
+      "aax"
+    ],
+    "platforms": [
+      "win",
+      "mac"
+    ],
+    "apple_silicon_native": true,
+    "price_model": "subscription",
+    "licensing": [
+      "vendor_account",
+      "ilok_cloud"
+    ],
+    "status": "active",
+    "successor_id": null,
+    "free_alternatives": [],
+    "last_verified": null,
+    "provenance": "seed",
+    "verified": false
+  },
+  {
+    "id": "waves-api-2500",
+    "vendor_id": "waves",
+    "name": "API 2500",
+    "keys": {
+      "vst3_cid": [],
+      "vst2_unique_id": [],
+      "au": [],
+      "clap_id": [],
+      "aax": []
+    },
+    "homepage": "https://www.waves.com/products/api-2500",
+    "manual_url": null,
+    "category": "effect/compressor",
+    "formats": [
+      "vst3",
+      "au",
+      "aax"
+    ],
+    "platforms": [
+      "win",
+      "mac"
+    ],
+    "apple_silicon_native": true,
+    "price_model": "paid",
+    "licensing": [
+      "ilok_dongle"
+    ],
+    "status": "active",
+    "successor_id": null,
+    "free_alternatives": [],
+    "last_verified": null,
+    "provenance": "seed",
+    "verified": false
+  },
+  {
+    "id": "izotope-rx",
+    "vendor_id": "izotope",
+    "name": "RX",
+    "keys": {
+      "vst3_cid": [],
+      "vst2_unique_id": [],
+      "au": [],
+      "clap_id": [],
+      "aax": []
+    },
+    "homepage": "https://www.izotope.com/en/products/rx/",
+    "manual_url": null,
+    "category": "effect/utility",
+    "formats": [
+      "vst3",
+      "au",
+      "aax"
+    ],
+    "platforms": [
+      "win",
+      "mac"
+    ],
+    "apple_silicon_native": true,
+    "price_model": "paid",
+    "licensing": [
+      "vendor_serial",
+      "ilok_cloud"
+    ],
+    "status": "active",
+    "successor_id": null,
+    "free_alternatives": [],
+    "last_verified": null,
+    "provenance": "seed",
+    "verified": false
+  },
+  {
+    "id": "soundtoys-echoboy",
+    "vendor_id": "soundtoys",
+    "name": "EchoBot",
+    "keys": {
+      "vst3_cid": [],
+      "vst2_unique_id": [],
+      "au": [],
+      "clap_id": [],
+      "aax": []
+    },
+    "homepage": "https://www.soundtoys.com/product/echoboy/",
+    "manual_url": null,
+    "category": "effect/delay",
+    "formats": [
+      "vst3",
+      "au",
+      "aax"
+    ],
+    "platforms": [
+      "win",
+      "mac"
+    ],
+    "apple_silicon_native": true,
+    "price_model": "paid",
+    "licensing": [
+      "vendor_serial"
+    ],
+    "status": "active",
+    "successor_id": null,
+    "free_alternatives": [],
+    "last_verified": null,
+    "provenance": "seed",
+    "verified": false
+  },
+  {
+    "id": "u-he-repro-1",
+    "vendor_id": "u-he",
+    "name": "Repro-1",
+    "keys": {
+      "vst3_cid": [],
+      "vst2_unique_id": [],
+      "au": [],
+      "clap_id": [],
+      "aax": []
+    },
+    "homepage": "https://www.u-he.com/products/repro-1",
+    "manual_url": null,
+    "category": "instrument/synth",
+    "formats": [
+      "vst3",
+      "au"
+    ],
+    "platforms": [
+      "win",
+      "mac"
+    ],
+    "apple_silicon_native": true,
+    "price_model": "paid",
+    "licensing": [
+      "vendor_serial"
+    ],
+    "status": "active",
+    "successor_id": null,
+    "free_alternatives": [],
+    "last_verified": null,
+    "provenance": "seed",
+    "verified": false
+  },
+  {
+    "id": "arturia-prophet-5",
+    "vendor_id": "arturia",
+    "name": "Prophet-5 V",
+    "keys": {
+      "vst3_cid": [],
+      "vst2_unique_id": [],
+      "au": [],
+      "clap_id": [],
+      "aax": []
+    },
+    "homepage": "https://www.arturia.com/products/software-instruments/prophet-5",
+    "manual_url": null,
+    "category": "instrument/synth",
+    "formats": [
+      "vst3",
+      "au",
+      "aax"
+    ],
+    "platforms": [
+      "win",
+      "mac"
+    ],
+    "apple_silicon_native": true,
+    "price_model": "paid",
+    "licensing": [
+      "vendor_account",
+      "vendor_serial"
+    ],
+    "status": "active",
+    "successor_id": null,
+    "free_alternatives": [],
+    "last_verified": null,
+    "provenance": "seed",
+    "verified": false
+  },
+  {
+    "id": "spectrasonics-omnisphere",
+    "vendor_id": "spectrasonics",
+    "name": "Omnisphere",
+    "keys": {
+      "vst3_cid": [],
+      "vst2_unique_id": [],
+      "au": [],
+      "clap_id": [],
+      "aax": []
+    },
+    "homepage": "https://www.spectrasonics.net/products/omnisphere",
+    "manual_url": null,
+    "category": "instrument/synth",
+    "formats": [
+      "vst2",
+      "au"
+    ],
+    "platforms": [
+      "win",
+      "mac"
+    ],
+    "apple_silicon_native": false,
+    "price_model": "paid",
+    "licensing": [
+      "vendor_serial"
+    ],
+    "status": "active",
+    "successor_id": null,
+    "free_alternatives": [],
+    "last_verified": null,
+    "provenance": "seed",
+    "verified": false
+  },
+  {
+    "id": "tokyo-dawn-tdr-nova",
+    "vendor_id": "tokyo-dawn-records",
+    "name": "TDR Nova",
+    "keys": {
+      "vst3_cid": [],
+      "vst2_unique_id": [],
+      "au": [],
+      "clap_id": [],
+      "aax": []
+    },
+    "homepage": "https://www.tokyodawnrecords.com/tdr-nova/",
+    "manual_url": null,
+    "category": "effect/eq",
+    "formats": [
+      "vst3",
+      "au"
+    ],
+    "platforms": [
+      "win",
+      "mac"
+    ],
+    "apple_silicon_native": true,
+    "price_model": "paid",
+    "licensing": [
+      "vendor_serial"
+    ],
+    "status": "active",
+    "successor_id": null,
+    "free_alternatives": [],
+    "last_verified": null,
+    "provenance": "seed",
+    "verified": false
+  },
+  {
+    "id": "surge-synth-team-surge-xt",
+    "vendor_id": "surge-synth-team",
+    "name": "Surge XT",
+    "keys": {
+      "vst3_cid": [
+        "B7F40E50F36F4D6FB27A92DCEF57C1C5"
+      ],
+      "vst2_unique_id": [],
+      "au": [],
+      "clap_id": [
+        "org.surge-synth-team.surge-xt"
+      ],
+      "aax": []
+    },
+    "homepage": "https://surge-synthesizer.github.io/",
+    "manual_url": null,
+    "category": "instrument/synth",
+    "formats": [
+      "vst3",
+      "au",
+      "clap"
+    ],
+    "platforms": [
+      "win",
+      "mac"
+    ],
+    "apple_silicon_native": true,
+    "price_model": "free",
+    "licensing": [
+      "none"
+    ],
+    "status": "active",
+    "successor_id": null,
+    "free_alternatives": [],
+    "last_verified": null,
+    "provenance": "seed",
+    "verified": false
+  },
+  {
+    "id": "vital-audio-vital",
+    "vendor_id": "vital-audio",
+    "name": "Vital",
+    "keys": {
+      "vst3_cid": [],
+      "vst2_unique_id": [],
+      "au": [],
+      "clap_id": [],
+      "aax": []
+    },
+    "homepage": "https://vital.audio",
+    "manual_url": null,
+    "category": "instrument/synth",
+    "formats": [
+      "vst3",
+      "au",
+      "clap"
+    ],
+    "platforms": [
+      "win",
+      "mac"
+    ],
+    "apple_silicon_native": true,
+    "price_model": "free",
+    "licensing": [
+      "none"
+    ],
+    "status": "active",
+    "successor_id": null,
+    "free_alternatives": [],
+    "last_verified": null,
+    "provenance": "seed",
+    "verified": false
+  },
+  {
+    "id": "universal-audio-neve-1073",
+    "vendor_id": "universal-audio",
+    "name": "Neve 1073",
+    "keys": {
+      "vst3_cid": [],
+      "vst2_unique_id": [],
+      "au": [],
+      "clap_id": [],
+      "aax": []
+    },
+    "homepage": "https://www.uaudio.com/neve-1073-collection/neve-1073-eq.html",
+    "manual_url": null,
+    "category": "effect/eq",
+    "formats": [
+      "au",
+      "aax"
+    ],
+    "platforms": [
+      "mac"
+    ],
+    "apple_silicon_native": true,
+    "price_model": "subscription",
+    "licensing": [
+      "ilok_dongle",
+      "ilok_cloud"
+    ],
+    "status": "active",
+    "successor_id": null,
+    "free_alternatives": [],
+    "last_verified": null,
+    "provenance": "seed",
+    "verified": false
+  },
+  {
+    "id": "slate-digital-vmr",
+    "vendor_id": "slate-digital",
+    "name": "Virtual Mix Rack",
+    "keys": {
+      "vst3_cid": [],
+      "vst2_unique_id": [],
+      "au": [],
+      "clap_id": [],
+      "aax": []
+    },
+    "homepage": "https://www.slatedigital.com/products/virtual-mix-rack",
+    "manual_url": null,
+    "category": "effect/rack",
+    "formats": [
+      "vst3",
+      "au",
+      "aax"
+    ],
+    "platforms": [
+      "win",
+      "mac"
+    ],
+    "apple_silicon_native": true,
+    "price_model": "subscription",
+    "licensing": [
+      "vendor_account"
+    ],
+    "status": "active",
+    "successor_id": null,
+    "free_alternatives": [],
+    "last_verified": null,
+    "provenance": "seed",
+    "verified": false
+  },
+  {
+    "id": "eventide-h910",
+    "vendor_id": "eventide",
+    "name": "H910 Harmonizer",
+    "keys": {
+      "vst3_cid": [],
+      "vst2_unique_id": [],
+      "au": [],
+      "clap_id": [],
+      "aax": []
+    },
+    "homepage": "https://www.eventideaudio.com/products/plugins/h910-harmonizer/",
+    "manual_url": null,
+    "category": "effect/delay",
+    "formats": [
+      "vst3",
+      "au",
+      "aax"
+    ],
+    "platforms": [
+      "win",
+      "mac"
+    ],
+    "apple_silicon_native": true,
+    "price_model": "paid",
+    "licensing": [
+      "vendor_serial"
+    ],
+    "status": "active",
+    "successor_id": null,
+    "free_alternatives": [],
+    "last_verified": null,
+    "provenance": "seed",
+    "verified": false
+  },
+  {
+    "id": "softube-saturation-knob",
+    "vendor_id": "softube",
+    "name": "Saturation Knob",
+    "keys": {
+      "vst3_cid": [],
+      "vst2_unique_id": [],
+      "au": [],
+      "clap_id": [],
+      "aax": []
+    },
+    "homepage": "https://www.softube.com/products/saturation-knob",
+    "manual_url": null,
+    "category": "effect/distortion",
+    "formats": [
+      "vst3",
+      "au",
+      "aax"
+    ],
+    "platforms": [
+      "win",
+      "mac"
+    ],
+    "apple_silicon_native": true,
+    "price_model": "paid",
+    "licensing": [
+      "vendor_serial"
+    ],
+    "status": "active",
+    "successor_id": null,
+    "free_alternatives": [],
+    "last_verified": null,
+    "provenance": "seed",
+    "verified": false
+  },
+  {
+    "id": "kilohearts-phase-plant",
+    "vendor_id": "kilohearts",
+    "name": "Phase Plant",
+    "keys": {
+      "vst3_cid": [],
+      "vst2_unique_id": [],
+      "au": [],
+      "clap_id": [],
+      "aax": []
+    },
+    "homepage": "https://kilohearts.com/products/phase_plant",
+    "manual_url": null,
+    "category": "instrument/synth",
+    "formats": [
+      "vst3",
+      "au"
+    ],
+    "platforms": [
+      "win",
+      "mac"
+    ],
+    "apple_silicon_native": true,
+    "price_model": "paid",
+    "licensing": [
+      "vendor_serial"
+    ],
+    "status": "active",
+    "successor_id": null,
+    "free_alternatives": [],
+    "last_verified": null,
+    "provenance": "seed",
+    "verified": false
+  },
+  {
+    "id": "baby-audio-bark-of-dog",
+    "vendor_id": "baby-audio",
+    "name": "Bark Of Dog",
+    "keys": {
+      "vst3_cid": [],
+      "vst2_unique_id": [],
+      "au": [],
+      "clap_id": [],
+      "aax": []
+    },
+    "homepage": "https://www.babyaud.io/bark-of-dog",
+    "manual_url": null,
+    "category": "effect/distortion",
+    "formats": [
+      "vst3",
+      "au"
+    ],
+    "platforms": [
+      "win",
+      "mac"
+    ],
+    "apple_silicon_native": true,
+    "price_model": "paid",
+    "licensing": [
+      "vendor_serial"
+    ],
+    "status": "active",
+    "successor_id": null,
+    "free_alternatives": [],
+    "last_verified": null,
+    "provenance": "seed",
+    "verified": false
+  },
+  {
+    "id": "toontrack-superior-drummer",
+    "vendor_id": "toontrack",
+    "name": "Superior Drummer",
+    "keys": {
+      "vst3_cid": [],
+      "vst2_unique_id": [],
+      "au": [],
+      "clap_id": [],
+      "aax": []
+    },
+    "homepage": "https://www.toontrack.com/product/superior-drummer-3/",
+    "manual_url": null,
+    "category": "instrument/drums",
+    "formats": [
+      "vst3",
+      "au",
+      "aax"
+    ],
+    "platforms": [
+      "win",
+      "mac"
+    ],
+    "apple_silicon_native": true,
+    "price_model": "paid",
+    "licensing": [
+      "vendor_serial"
+    ],
+    "status": "active",
+    "successor_id": null,
+    "free_alternatives": [],
+    "last_verified": null,
+    "provenance": "seed",
+    "verified": false
+  },
+  {
+    "id": "xln-audio-addictive-keys",
+    "vendor_id": "xln-audio",
+    "name": "Addictive Keys",
+    "keys": {
+      "vst3_cid": [],
+      "vst2_unique_id": [],
+      "au": [],
+      "clap_id": [],
+      "aax": []
+    },
+    "homepage": "https://www.xlnaudio.com/products/addictive-keys",
+    "manual_url": null,
+    "category": "instrument/keys",
+    "formats": [
+      "vst3",
+      "au"
+    ],
+    "platforms": [
+      "win",
+      "mac"
+    ],
+    "apple_silicon_native": true,
+    "price_model": "paid",
+    "licensing": [
+      "vendor_serial"
+    ],
+    "status": "active",
+    "successor_id": null,
+    "free_alternatives": [],
+    "last_verified": null,
+    "provenance": "seed",
+    "verified": false
+  },
+  {
+    "id": "spitfire-audio-bbc-symphony",
+    "vendor_id": "spitfire-audio",
+    "name": "BBC Symphony Orchestra",
+    "keys": {
+      "vst3_cid": [],
+      "vst2_unique_id": [],
+      "au": [],
+      "clap_id": [],
+      "aax": []
+    },
+    "homepage": "https://www.spitfireaudio.com/shop/a-z/bbc-symphony-orchestra/",
+    "manual_url": null,
+    "category": "instrument/orchestral",
+    "formats": [
+      "vst3",
+      "au"
+    ],
+    "platforms": [
+      "win",
+      "mac"
+    ],
+    "apple_silicon_native": true,
+    "price_model": "paid",
+    "licensing": [
+      "vendor_account",
+      "vendor_serial"
+    ],
+    "status": "active",
+    "successor_id": null,
+    "free_alternatives": [],
+    "last_verified": null,
+    "provenance": "seed",
+    "verified": false
+  },
+  {
+    "id": "ableton-live-wavetable",
+    "vendor_id": "ableton",
+    "name": "Wavetable",
+    "keys": {
+      "vst3_cid": [],
+      "vst2_unique_id": [],
+      "au": [],
+      "clap_id": [],
+      "aax": []
+    },
+    "homepage": "https://www.ableton.com/en/live/",
+    "manual_url": null,
+    "category": "instrument/synth",
+    "formats": [],
+    "platforms": [
+      "win",
+      "mac"
+    ],
+    "apple_silicon_native": true,
+    "price_model": "bundled_with_daw",
+    "licensing": [
+      "bundled_with_daw"
+    ],
+    "status": "active",
+    "successor_id": null,
+    "free_alternatives": [],
+    "last_verified": null,
+    "provenance": "seed",
+    "verified": false
+  },
+  {
+    "id": "reaper-reasamplOmatic",
+    "vendor_id": "cockos",
+    "name": "ReaSamplomatic 5000",
+    "keys": {
+      "vst3_cid": [],
+      "vst2_unique_id": [],
+      "au": [],
+      "clap_id": [],
+      "aax": []
+    },
+    "homepage": "https://www.cockos.com/reaper/",
+    "manual_url": null,
+    "category": "instrument/sampler",
+    "formats": [],
+    "platforms": [
+      "win",
+      "mac"
+    ],
+    "apple_silicon_native": true,
+    "price_model": "bundled_with_daw",
+    "licensing": [
+      "bundled_with_daw"
+    ],
+    "status": "active",
+    "successor_id": null,
+    "free_alternatives": [],
+    "last_verified": null,
+    "provenance": "seed",
+    "verified": false
+  },
+  {
+    "id": "presonus-studio-one-presence",
+    "vendor_id": "presonus",
+    "name": "Presence XT",
+    "keys": {
+      "vst3_cid": [],
+      "vst2_unique_id": [],
+      "au": [],
+      "clap_id": [],
+      "aax": []
+    },
+    "homepage": "https://www.presonus.com/products/studio-one",
+    "manual_url": null,
+    "category": "instrument/sampler",
+    "formats": [],
+    "platforms": [
+      "win",
+      "mac"
+    ],
+    "apple_silicon_native": true,
+    "price_model": "bundled_with_daw",
+    "licensing": [
+      "bundled_with_daw"
+    ],
+    "status": "active",
+    "successor_id": null,
+    "free_alternatives": [],
+    "last_verified": null,
+    "provenance": "seed",
+    "verified": false
+  },
+  {
+    "id": "avid-pro-tools-standard",
+    "vendor_id": "avid",
+    "name": "Pro Tools Standard",
+    "keys": {
+      "vst3_cid": [],
+      "vst2_unique_id": [],
+      "au": [],
+      "clap_id": [],
+      "aax": []
+    },
+    "homepage": "https://www.avid.com/pro-tools",
+    "manual_url": null,
+    "category": "daw",
+    "formats": [
+      "aax"
+    ],
+    "platforms": [
+      "win",
+      "mac"
+    ],
+    "apple_silicon_native": true,
+    "price_model": "subscription",
+    "licensing": [
+      "subscription"
+    ],
+    "status": "active",
+    "successor_id": null,
+    "free_alternatives": [],
+    "last_verified": null,
+    "provenance": "seed",
+    "verified": false
+  },
+  {
+    "id": "plugin-alliance-brainworx-bx-opto",
+    "vendor_id": "plugin-alliance",
+    "name": "bx_opto",
+    "keys": {
+      "vst3_cid": [],
+      "vst2_unique_id": [],
+      "au": [],
+      "clap_id": [],
+      "aax": []
+    },
+    "homepage": "https://www.plugin-alliance.com/en/products/bx_opto.html",
+    "manual_url": null,
+    "category": "effect/compressor",
+    "formats": [
+      "vst3",
+      "au",
+      "aax"
+    ],
+    "platforms": [
+      "win",
+      "mac"
+    ],
+    "apple_silicon_native": true,
+    "price_model": "paid",
+    "licensing": [
+      "vendor_account",
+      "ilok_cloud"
+    ],
+    "status": "active",
+    "successor_id": null,
+    "free_alternatives": [],
+    "last_verified": null,
+    "provenance": "seed",
+    "verified": false
+  },
+  {
+    "id": "cableguys-shaperbox",
+    "vendor_id": "cableguys",
+    "name": "ShaperBox 3",
+    "keys": {
+      "vst3_cid": [],
+      "vst2_unique_id": [],
+      "au": [],
+      "clap_id": [],
+      "aax": []
+    },
+    "homepage": "https://www.cableguys.com/shaperbox.html",
+    "manual_url": null,
+    "category": "effect/modulation",
+    "formats": [
+      "vst3",
+      "au"
+    ],
+    "platforms": [
+      "win",
+      "mac"
+    ],
+    "apple_silicon_native": true,
+    "price_model": "paid",
+    "licensing": [
+      "vendor_serial"
+    ],
+    "status": "active",
+    "successor_id": null,
+    "free_alternatives": [],
+    "last_verified": null,
+    "provenance": "seed",
+    "verified": false
+  },
+  {
+    "id": "goodhertz-voco",
+    "vendor_id": "goodhertz",
+    "name": "Voco",
+    "keys": {
+      "vst3_cid": [],
+      "vst2_unique_id": [],
+      "au": [],
+      "clap_id": [],
+      "aax": []
+    },
+    "homepage": "https://www.goodhertz.co/voco",
+    "manual_url": null,
+    "category": "effect/vocal",
+    "formats": [
+      "vst3",
+      "au"
+    ],
+    "platforms": [
+      "win",
+      "mac"
+    ],
+    "apple_silicon_native": true,
+    "price_model": "paid",
+    "licensing": [
+      "vendor_serial"
+    ],
+    "status": "active",
+    "successor_id": null,
+    "free_alternatives": [],
+    "last_verified": null,
+    "provenance": "seed",
+    "verified": false
+  },
+  {
+    "id": "d16-group-nithonat",
+    "vendor_id": "d16-group",
+    "name": "Nithonat",
+    "keys": {
+      "vst3_cid": [],
+      "vst2_unique_id": [],
+      "au": [],
+      "clap_id": [],
+      "aax": []
+    },
+    "homepage": "https://www.d16.pl/nithonat",
+    "manual_url": null,
+    "category": "effect/compressor",
+    "formats": [
+      "vst3",
+      "au"
+    ],
+    "platforms": [
+      "win",
+      "mac"
+    ],
+    "apple_silicon_native": true,
+    "price_model": "paid",
+    "licensing": [
+      "vendor_serial"
+    ],
+    "status": "active",
+    "successor_id": null,
+    "free_alternatives": [],
+    "last_verified": null,
+    "provenance": "seed",
+    "verified": false
+  },
+  {
+    "id": "rob-papen-blue",
+    "vendor_id": "rob-papen",
+    "name": "Blue",
+    "keys": {
+      "vst3_cid": [],
+      "vst2_unique_id": [],
+      "au": [],
+      "clap_id": [],
+      "aax": []
+    },
+    "homepage": "https://www.robpapen.com/blue.html",
+    "manual_url": null,
+    "category": "instrument/synth",
+    "formats": [
+      "vst3",
+      "au"
+    ],
+    "platforms": [
+      "win",
+      "mac"
+    ],
+    "apple_silicon_native": true,
+    "price_model": "paid",
+    "licensing": [
+      "vendor_serial"
+    ],
+    "status": "active",
+    "successor_id": null,
+    "free_alternatives": [],
+    "last_verified": null,
+    "provenance": "seed",
+    "verified": false
+  },
+  {
+    "id": "celemony-melodyne-5",
+    "vendor_id": "melodyne",
+    "name": "Melodyne 5",
+    "keys": {
+      "vst3_cid": [],
+      "vst2_unique_id": [],
+      "au": [],
+      "clap_id": [],
+      "aax": []
+    },
+    "homepage": "https://www.celemony.com/en/products_melodyne_editor",
+    "manual_url": null,
+    "category": "effect/utility",
+    "formats": [
+      "vst3",
+      "au",
+      "aax"
+    ],
+    "platforms": [
+      "win",
+      "mac"
+    ],
+    "apple_silicon_native": true,
+    "price_model": "paid",
+    "licensing": [
+      "vendor_serial"
+    ],
+    "status": "active",
+    "successor_id": null,
+    "free_alternatives": [],
+    "last_verified": null,
+    "provenance": "seed",
+    "verified": false
+  },
+  {
+    "id": "oeksound-spiff",
+    "vendor_id": "oeksound",
+    "name": "Spiff",
+    "keys": {
+      "vst3_cid": [],
+      "vst2_unique_id": [],
+      "au": [],
+      "clap_id": [],
+      "aax": []
+    },
+    "homepage": "https://www.oeksound.com/products/spiff",
+    "manual_url": null,
+    "category": "effect/utility",
+    "formats": [
+      "vst3",
+      "au"
+    ],
+    "platforms": [
+      "win",
+      "mac"
+    ],
+    "apple_silicon_native": true,
+    "price_model": "paid",
+    "licensing": [
+      "vendor_serial"
+    ],
+    "status": "active",
+    "successor_id": null,
+    "free_alternatives": [],
+    "last_verified": null,
+    "provenance": "seed",
+    "verified": false
+  },
+  {
+    "id": "sonnox-oxford-eq",
+    "vendor_id": "sonnox",
+    "name": "Oxford EQ",
+    "keys": {
+      "vst3_cid": [],
+      "vst2_unique_id": [],
+      "au": [],
+      "clap_id": [],
+      "aax": []
+    },
+    "homepage": "https://www.sonnoxplugins.com/products/oxford-eq/",
+    "manual_url": null,
+    "category": "effect/eq",
+    "formats": [
+      "vst3",
+      "au",
+      "aax"
+    ],
+    "platforms": [
+      "win",
+      "mac"
+    ],
+    "apple_silicon_native": true,
+    "price_model": "paid",
+    "licensing": [
+      "vendor_serial"
+    ],
+    "status": "active",
+    "successor_id": null,
+    "free_alternatives": [],
+    "last_verified": null,
+    "provenance": "seed",
+    "verified": false
+  },
+  {
+    "id": "output-argon",
+    "vendor_id": "output",
+    "name": "Argon",
+    "keys": {
+      "vst3_cid": [],
+      "vst2_unique_id": [],
+      "au": [],
+      "clap_id": [],
+      "aax": []
+    },
+    "homepage": "https://www.outputmusic.com/products/argon8x",
+    "manual_url": null,
+    "category": "instrument/synth",
+    "formats": [
+      "vst3",
+      "au"
+    ],
+    "platforms": [
+      "win",
+      "mac"
+    ],
+    "apple_silicon_native": true,
+    "price_model": "paid",
+    "licensing": [
+      "vendor_account"
+    ],
+    "status": "active",
+    "successor_id": null,
+    "free_alternatives": [],
+    "last_verified": null,
+    "provenance": "seed",
+    "verified": false
+  },
+  {
+    "id": "acustica-audio-crimson",
+    "vendor_id": "acustica-audio",
+    "name": "Crimson",
+    "keys": {
+      "vst3_cid": [],
+      "vst2_unique_id": [],
+      "au": [],
+      "clap_id": [],
+      "aax": []
+    },
+    "homepage": "https://www.acustica-audio.com/",
+    "manual_url": null,
+    "category": "effect/compressor",
+    "formats": [
+      "vst3",
+      "au"
+    ],
+    "platforms": [
+      "win",
+      "mac"
+    ],
+    "apple_silicon_native": true,
+    "price_model": "paid",
+    "licensing": [
+      "vendor_serial"
+    ],
+    "status": "active",
+    "successor_id": null,
+    "free_alternatives": [],
+    "last_verified": null,
+    "provenance": "seed",
+    "verified": false
+  },
+  {
+    "id": "synchro-arts-revoice-pro",
+    "vendor_id": "synchro-arts",
+    "name": "Revoice Pro",
+    "keys": {
+      "vst3_cid": [],
+      "vst2_unique_id": [],
+      "au": [],
+      "clap_id": [],
+      "aax": []
+    },
+    "homepage": "https://www.synchroarts.com/products/revoice-pro",
+    "manual_url": null,
+    "category": "effect/pitch",
+    "formats": [
+      "au",
+      "aax"
+    ],
+    "platforms": [
+      "mac"
+    ],
+    "apple_silicon_native": true,
+    "price_model": "paid",
+    "licensing": [
+      "vendor_serial"
+    ],
+    "status": "active",
+    "successor_id": null,
+    "free_alternatives": [],
+    "last_verified": null,
+    "provenance": "seed",
+    "verified": false
+  }
+]

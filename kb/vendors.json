@@ -1,0 +1,1052 @@
+[
+  {
+    "id": "fabfilter",
+    "name": "FabFilter",
+    "aliases": [
+      "FabFilter Software Instruments"
+    ],
+    "homepage": "https://www.fabfilter.com",
+    "support_url": null,
+    "bundle_id_prefixes": [
+      "com.fabfilter"
+    ],
+    "vst3_factory_vendor_strings": [
+      "FabFilter"
+    ],
+    "au_manufacturer_codes": [
+      "FabF"
+    ],
+    "licensing": [
+      "vendor_serial"
+    ],
+    "notes": null,
+    "last_verified": null,
+    "provenance": "seed",
+    "verified": false
+  },
+  {
+    "id": "valhalla-dsp",
+    "name": "Valhalla DSP",
+    "aliases": [
+      "Valhalla DSP, Inc."
+    ],
+    "homepage": "https://www.valhalladsp.com",
+    "support_url": null,
+    "bundle_id_prefixes": [
+      "com.valhalladsp"
+    ],
+    "vst3_factory_vendor_strings": [
+      "Valhalla DSP"
+    ],
+    "au_manufacturer_codes": null,
+    "licensing": [
+      "vendor_serial"
+    ],
+    "notes": null,
+    "last_verified": null,
+    "provenance": "seed",
+    "verified": false
+  },
+  {
+    "id": "native-instruments",
+    "name": "Native Instruments",
+    "aliases": [
+      "NI",
+      "Native Instruments GmbH"
+    ],
+    "homepage": "https://www.native-instruments.com",
+    "support_url": null,
+    "bundle_id_prefixes": [
+      "com.native-instruments"
+    ],
+    "vst3_factory_vendor_strings": [
+      "Native Instruments"
+    ],
+    "au_manufacturer_codes": [
+      "NI"
+    ],
+    "licensing": [
+      "vendor_account",
+      "ilok_cloud"
+    ],
+    "notes": null,
+    "last_verified": null,
+    "provenance": "seed",
+    "verified": false
+  },
+  {
+    "id": "waves",
+    "name": "Waves",
+    "aliases": [
+      "Waves Audio"
+    ],
+    "homepage": "https://www.waves.com",
+    "support_url": null,
+    "bundle_id_prefixes": [
+      "com.waves"
+    ],
+    "vst3_factory_vendor_strings": [
+      "Waves"
+    ],
+    "au_manufacturer_codes": [
+      "Wavs"
+    ],
+    "licensing": [
+      "ilok_dongle",
+      "ilok_machine"
+    ],
+    "notes": null,
+    "last_verified": null,
+    "provenance": "seed",
+    "verified": false
+  },
+  {
+    "id": "izotope",
+    "name": "iZotope",
+    "aliases": [
+      "iZotope, Inc."
+    ],
+    "homepage": "https://www.izotope.com",
+    "support_url": null,
+    "bundle_id_prefixes": [
+      "com.izotope"
+    ],
+    "vst3_factory_vendor_strings": [
+      "iZotope"
+    ],
+    "au_manufacturer_codes": [
+      "izot"
+    ],
+    "licensing": [
+      "vendor_serial",
+      "ilok_cloud"
+    ],
+    "notes": null,
+    "last_verified": null,
+    "provenance": "seed",
+    "verified": false
+  },
+  {
+    "id": "soundtoys",
+    "name": "SoundToys",
+    "aliases": [
+      "Soundtoys",
+      "SoundToys Inc"
+    ],
+    "homepage": "https://www.soundtoys.com",
+    "support_url": null,
+    "bundle_id_prefixes": [
+      "com.soundtoys"
+    ],
+    "vst3_factory_vendor_strings": [
+      "SoundToys"
+    ],
+    "au_manufacturer_codes": [
+      "StYl"
+    ],
+    "licensing": [
+      "vendor_serial"
+    ],
+    "notes": null,
+    "last_verified": null,
+    "provenance": "seed",
+    "verified": false
+  },
+  {
+    "id": "xfer-records",
+    "name": "Xfer Records",
+    "aliases": [
+      "Xfer"
+    ],
+    "homepage": "https://www.xferrecords.com",
+    "support_url": null,
+    "bundle_id_prefixes": [
+      "com.xferrecords"
+    ],
+    "vst3_factory_vendor_strings": [
+      "Xfer Records"
+    ],
+    "au_manufacturer_codes": [
+      "Xfer"
+    ],
+    "licensing": [
+      "vendor_serial"
+    ],
+    "notes": null,
+    "last_verified": null,
+    "provenance": "seed",
+    "verified": false
+  },
+  {
+    "id": "u-he",
+    "name": "u-he",
+    "aliases": [
+      "Unique Software & Sounds",
+      "uhesoftware"
+    ],
+    "homepage": "https://www.u-he.com",
+    "support_url": null,
+    "bundle_id_prefixes": [
+      "com.uhesoftware"
+    ],
+    "vst3_factory_vendor_strings": [
+      "u-he"
+    ],
+    "au_manufacturer_codes": [
+      "uhe"
+    ],
+    "licensing": [
+      "vendor_serial"
+    ],
+    "notes": null,
+    "last_verified": null,
+    "provenance": "seed",
+    "verified": false
+  },
+  {
+    "id": "arturia",
+    "name": "Arturia",
+    "aliases": [
+      "Arturia S.A.S"
+    ],
+    "homepage": "https://www.arturia.com",
+    "support_url": null,
+    "bundle_id_prefixes": [
+      "com.arturia"
+    ],
+    "vst3_factory_vendor_strings": [
+      "Arturia"
+    ],
+    "au_manufacturer_codes": [
+      "Artu"
+    ],
+    "licensing": [
+      "vendor_account",
+      "vendor_serial"
+    ],
+    "notes": null,
+    "last_verified": null,
+    "provenance": "seed",
+    "verified": false
+  },
+  {
+    "id": "spectrasonics",
+    "name": "Spectrasonics",
+    "aliases": [
+      "Spectrasonics Inc"
+    ],
+    "homepage": "https://www.spectrasonics.net",
+    "support_url": null,
+    "bundle_id_prefixes": [
+      "com.spectrasonics"
+    ],
+    "vst3_factory_vendor_strings": [
+      "Spectrasonics"
+    ],
+    "au_manufacturer_codes": [
+      "Spec"
+    ],
+    "licensing": [
+      "vendor_serial"
+    ],
+    "notes": null,
+    "last_verified": null,
+    "provenance": "seed",
+    "verified": false
+  },
+  {
+    "id": "tokyo-dawn-records",
+    "name": "Tokyo Dawn Records",
+    "aliases": [
+      "TDR",
+      "Tokyo Dawn Records Ltd"
+    ],
+    "homepage": "https://www.tokyodawnrecords.com",
+    "support_url": null,
+    "bundle_id_prefixes": [
+      "com.tokyodawnrecords"
+    ],
+    "vst3_factory_vendor_strings": [
+      "Tokyo Dawn Records"
+    ],
+    "au_manufacturer_codes": [
+      "TDR"
+    ],
+    "licensing": [
+      "vendor_serial"
+    ],
+    "notes": null,
+    "last_verified": null,
+    "provenance": "seed",
+    "verified": false
+  },
+  {
+    "id": "surge-synth-team",
+    "name": "Surge Synth Team",
+    "aliases": [
+      "Surge",
+      "Surge Synthesizer Team"
+    ],
+    "homepage": "https://surge-synthesizer.github.io",
+    "support_url": null,
+    "bundle_id_prefixes": [
+      "org.surge-synth-team"
+    ],
+    "vst3_factory_vendor_strings": [
+      "Surge Synth Team"
+    ],
+    "au_manufacturer_codes": [
+      "SURS"
+    ],
+    "licensing": [
+      "none"
+    ],
+    "notes": null,
+    "last_verified": null,
+    "provenance": "seed",
+    "verified": false
+  },
+  {
+    "id": "vital-audio",
+    "name": "Vital Audio",
+    "aliases": [
+      "Vital",
+      "Matt Tytel"
+    ],
+    "homepage": "https://vital.audio",
+    "support_url": null,
+    "bundle_id_prefixes": [
+      "com.matttytel.vital"
+    ],
+    "vst3_factory_vendor_strings": [
+      "Matt Tytel"
+    ],
+    "au_manufacturer_codes": [
+      "VTL"
+    ],
+    "licensing": [
+      "free"
+    ],
+    "notes": null,
+    "last_verified": null,
+    "provenance": "seed",
+    "verified": false
+  },
+  {
+    "id": "plugin-alliance",
+    "name": "Plugin Alliance",
+    "aliases": [
+      "Plugin Alliance GmbH",
+      "Brainworx"
+    ],
+    "homepage": "https://www.plugin-alliance.com",
+    "support_url": null,
+    "bundle_id_prefixes": [
+      "com.plugin-alliance",
+      "com.brainworx"
+    ],
+    "vst3_factory_vendor_strings": [
+      "Plugin Alliance"
+    ],
+    "au_manufacturer_codes": [
+      "PLGA"
+    ],
+    "licensing": [
+      "vendor_account",
+      "ilok_cloud"
+    ],
+    "notes": null,
+    "last_verified": null,
+    "provenance": "seed",
+    "verified": false
+  },
+  {
+    "id": "universal-audio",
+    "name": "Universal Audio",
+    "aliases": [
+      "UA",
+      "Universal Audio Inc"
+    ],
+    "homepage": "https://www.uaudio.com",
+    "support_url": null,
+    "bundle_id_prefixes": [
+      "com.uaudio"
+    ],
+    "vst3_factory_vendor_strings": [
+      "Universal Audio"
+    ],
+    "au_manufacturer_codes": [
+      "UACC"
+    ],
+    "licensing": [
+      "ilok_dongle",
+      "ilok_cloud"
+    ],
+    "notes": null,
+    "last_verified": null,
+    "provenance": "seed",
+    "verified": false
+  },
+  {
+    "id": "slate-digital",
+    "name": "Slate Digital",
+    "aliases": [
+      "Slate"
+    ],
+    "homepage": "https://www.slatedigital.com",
+    "support_url": null,
+    "bundle_id_prefixes": [
+      "com.slatedigital"
+    ],
+    "vst3_factory_vendor_strings": [
+      "Slate Digital"
+    ],
+    "au_manufacturer_codes": [
+      "SLAT"
+    ],
+    "licensing": [
+      "vendor_account"
+    ],
+    "notes": null,
+    "last_verified": null,
+    "provenance": "seed",
+    "verified": false
+  },
+  {
+    "id": "eventide",
+    "name": "Eventide",
+    "aliases": [
+      "Eventide Inc"
+    ],
+    "homepage": "https://www.eventideaudio.com",
+    "support_url": null,
+    "bundle_id_prefixes": [
+      "com.eventide"
+    ],
+    "vst3_factory_vendor_strings": [
+      "Eventide"
+    ],
+    "au_manufacturer_codes": [
+      "EVT"
+    ],
+    "licensing": [
+      "vendor_serial"
+    ],
+    "notes": null,
+    "last_verified": null,
+    "provenance": "seed",
+    "verified": false
+  },
+  {
+    "id": "softube",
+    "name": "Softube",
+    "aliases": [
+      "Softube AB"
+    ],
+    "homepage": "https://www.softube.com",
+    "support_url": null,
+    "bundle_id_prefixes": [
+      "com.softube"
+    ],
+    "vst3_factory_vendor_strings": [
+      "Softube"
+    ],
+    "au_manufacturer_codes": [
+      "SFTU"
+    ],
+    "licensing": [
+      "vendor_serial"
+    ],
+    "notes": null,
+    "last_verified": null,
+    "provenance": "seed",
+    "verified": false
+  },
+  {
+    "id": "oeksound",
+    "name": "Oeaksound",
+    "aliases": [
+      "Oeksound",
+      "Oeksound AB"
+    ],
+    "homepage": "https://www.oeksound.com",
+    "support_url": null,
+    "bundle_id_prefixes": [
+      "com.oeksound"
+    ],
+    "vst3_factory_vendor_strings": [
+      "Oeksound"
+    ],
+    "au_manufacturer_codes": [
+      "OEKS"
+    ],
+    "licensing": [
+      "vendor_serial"
+    ],
+    "notes": null,
+    "last_verified": null,
+    "provenance": "seed",
+    "verified": false
+  },
+  {
+    "id": "sonnox",
+    "name": "Sonnox",
+    "aliases": [
+      "Sonnox Ltd"
+    ],
+    "homepage": "https://www.sonnoxplugins.com",
+    "support_url": null,
+    "bundle_id_prefixes": [
+      "com.sonnox"
+    ],
+    "vst3_factory_vendor_strings": [
+      "Sonnox"
+    ],
+    "au_manufacturer_codes": [
+      "SNOX"
+    ],
+    "licensing": [
+      "vendor_serial"
+    ],
+    "notes": null,
+    "last_verified": null,
+    "provenance": "seed",
+    "verified": false
+  },
+  {
+    "id": "output",
+    "name": "Output",
+    "aliases": [
+      "Output Inc"
+    ],
+    "homepage": "https://www.outputmusic.com",
+    "support_url": null,
+    "bundle_id_prefixes": [
+      "com.output"
+    ],
+    "vst3_factory_vendor_strings": [
+      "Output"
+    ],
+    "au_manufacturer_codes": [
+      "OUTP"
+    ],
+    "licensing": [
+      "vendor_account"
+    ],
+    "notes": null,
+    "last_verified": null,
+    "provenance": "seed",
+    "verified": false
+  },
+  {
+    "id": "kilohearts",
+    "name": "Kilohearts",
+    "aliases": [
+      "Kilohearts AB"
+    ],
+    "homepage": "https://kilohearts.com",
+    "support_url": null,
+    "bundle_id_prefixes": [
+      "com.kilohearts"
+    ],
+    "vst3_factory_vendor_strings": [
+      "Kilohearts"
+    ],
+    "au_manufacturer_codes": [
+      "KHL"
+    ],
+    "licensing": [
+      "vendor_serial"
+    ],
+    "notes": null,
+    "last_verified": null,
+    "provenance": "seed",
+    "verified": false
+  },
+  {
+    "id": "baby-audio",
+    "name": "Baby Audio",
+    "aliases": [
+      "Baby Audio AB"
+    ],
+    "homepage": "https://www.babyaud.io",
+    "support_url": null,
+    "bundle_id_prefixes": [
+      "com.babyaudio"
+    ],
+    "vst3_factory_vendor_strings": [
+      "Baby Audio"
+    ],
+    "au_manufacturer_codes": [
+      "BABY"
+    ],
+    "licensing": [
+      "vendor_serial"
+    ],
+    "notes": null,
+    "last_verified": null,
+    "provenance": "seed",
+    "verified": false
+  },
+  {
+    "id": "cableguys",
+    "name": "CableGuys",
+    "aliases": [
+      "CableGuys GmbH"
+    ],
+    "homepage": "https://www.cableguys.com",
+    "support_url": null,
+    "bundle_id_prefixes": [
+      "com.cableguys"
+    ],
+    "vst3_factory_vendor_strings": [
+      "CableGuys"
+    ],
+    "au_manufacturer_codes": [
+      "CBGYS"
+    ],
+    "licensing": [
+      "vendor_serial"
+    ],
+    "notes": null,
+    "last_verified": null,
+    "provenance": "seed",
+    "verified": false
+  },
+  {
+    "id": "goodhertz",
+    "name": "Goodhertz",
+    "aliases": [
+      "Goodhertz Inc"
+    ],
+    "homepage": "https://www.goodhertz.co",
+    "support_url": null,
+    "bundle_id_prefixes": [
+      "com.goodhertz"
+    ],
+    "vst3_factory_vendor_strings": [
+      "Goodhertz"
+    ],
+    "au_manufacturer_codes": [
+      "GOOD"
+    ],
+    "licensing": [
+      "vendor_serial"
+    ],
+    "notes": null,
+    "last_verified": null,
+    "provenance": "seed",
+    "verified": false
+  },
+  {
+    "id": "d16-group",
+    "name": "D16 Group",
+    "aliases": [
+      "D16",
+      "D16 Group"
+    ],
+    "homepage": "https://www.d16.pl",
+    "support_url": null,
+    "bundle_id_prefixes": [
+      "com.d16group"
+    ],
+    "vst3_factory_vendor_strings": [
+      "D16 Group"
+    ],
+    "au_manufacturer_codes": [
+      "D16"
+    ],
+    "licensing": [
+      "vendor_serial"
+    ],
+    "notes": null,
+    "last_verified": null,
+    "provenance": "seed",
+    "verified": false
+  },
+  {
+    "id": "rob-papen",
+    "name": "Rob Papen",
+    "aliases": [
+      "Rob Papen Instruments"
+    ],
+    "homepage": "https://www.robpapen.com",
+    "support_url": null,
+    "bundle_id_prefixes": [
+      "com.robpapen"
+    ],
+    "vst3_factory_vendor_strings": [
+      "Rob Papen"
+    ],
+    "au_manufacturer_codes": [
+      "RBNP"
+    ],
+    "licensing": [
+      "vendor_serial"
+    ],
+    "notes": null,
+    "last_verified": null,
+    "provenance": "seed",
+    "verified": false
+  },
+  {
+    "id": "toontrack",
+    "name": "Toontrack",
+    "aliases": [
+      "Toontrack Music"
+    ],
+    "homepage": "https://www.toontrack.com",
+    "support_url": null,
+    "bundle_id_prefixes": [
+      "com.toontrack"
+    ],
+    "vst3_factory_vendor_strings": [
+      "Toontrack"
+    ],
+    "au_manufacturer_codes": [
+      "TOON"
+    ],
+    "licensing": [
+      "vendor_serial"
+    ],
+    "notes": null,
+    "last_verified": null,
+    "provenance": "seed",
+    "verified": false
+  },
+  {
+    "id": "xln-audio",
+    "name": "XLN Audio",
+    "aliases": [
+      "XLN Audio AB"
+    ],
+    "homepage": "https://www.xlnaudio.com",
+    "support_url": null,
+    "bundle_id_prefixes": [
+      "com.xlnaudio"
+    ],
+    "vst3_factory_vendor_strings": [
+      "XLN Audio"
+    ],
+    "au_manufacturer_codes": [
+      "XLNA"
+    ],
+    "licensing": [
+      "vendor_serial"
+    ],
+    "notes": null,
+    "last_verified": null,
+    "provenance": "seed",
+    "verified": false
+  },
+  {
+    "id": "spitfire-audio",
+    "name": "Spitfire Audio",
+    "aliases": [
+      "Spitfire"
+    ],
+    "homepage": "https://www.spitfireaudio.com",
+    "support_url": null,
+    "bundle_id_prefixes": [
+      "com.spitfireaudio"
+    ],
+    "vst3_factory_vendor_strings": [
+      "Spitfire Audio"
+    ],
+    "au_manufacturer_codes": [
+      "SPIT"
+    ],
+    "licensing": [
+      "vendor_account",
+      "vendor_serial"
+    ],
+    "notes": null,
+    "last_verified": null,
+    "provenance": "seed",
+    "verified": false
+  },
+  {
+    "id": "steinberg",
+    "name": "Steinberg",
+    "aliases": [
+      "Steinberg Media Technologies",
+      "Steinberg"
+    ],
+    "homepage": "https://www.steinberg.net",
+    "support_url": null,
+    "bundle_id_prefixes": [
+      "com.steinberg"
+    ],
+    "vst3_factory_vendor_strings": [
+      "Steinberg"
+    ],
+    "au_manufacturer_codes": [
+      "STYN"
+    ],
+    "licensing": [
+      "none",
+      "bundled_with_daw"
+    ],
+    "notes": null,
+    "last_verified": null,
+    "provenance": "seed",
+    "verified": false
+  },
+  {
+    "id": "apple",
+    "name": "Apple",
+    "aliases": [
+      "Apple Inc",
+      "Apple Computers"
+    ],
+    "homepage": "https://www.apple.com",
+    "support_url": null,
+    "bundle_id_prefixes": [
+      "com.apple"
+    ],
+    "vst3_factory_vendor_strings": [
+      "Apple"
+    ],
+    "au_manufacturer_codes": [
+      "appl"
+    ],
+    "licensing": [
+      "bundled_with_daw"
+    ],
+    "notes": null,
+    "last_verified": null,
+    "provenance": "seed",
+    "verified": false
+  },
+  {
+    "id": "ableton",
+    "name": "Ableton",
+    "aliases": [
+      "Ableton AG"
+    ],
+    "homepage": "https://www.ableton.com",
+    "support_url": null,
+    "bundle_id_prefixes": [
+      "com.ableton"
+    ],
+    "vst3_factory_vendor_strings": [
+      "Ableton"
+    ],
+    "au_manufacturer_codes": [
+      "abel"
+    ],
+    "licensing": [
+      "bundled_with_daw"
+    ],
+    "notes": null,
+    "last_verified": null,
+    "provenance": "seed",
+    "verified": false
+  },
+  {
+    "id": "image-line",
+    "name": "Image-Line",
+    "aliases": [
+      "Image-Line Software",
+      "Image-Line"
+    ],
+    "homepage": "https://www.image-line.com",
+    "support_url": null,
+    "bundle_id_prefixes": [
+      "com.imageline"
+    ],
+    "vst3_factory_vendor_strings": [
+      "Image-Line"
+    ],
+    "au_manufacturer_codes": [
+      "IMGL"
+    ],
+    "licensing": [
+      "bundled_with_daw"
+    ],
+    "notes": null,
+    "last_verified": null,
+    "provenance": "seed",
+    "verified": false
+  },
+  {
+    "id": "cockos",
+    "name": "Cockos",
+    "aliases": [
+      "Cockos Inc"
+    ],
+    "homepage": "https://www.cockos.com",
+    "support_url": null,
+    "bundle_id_prefixes": [
+      "com.cockos"
+    ],
+    "vst3_factory_vendor_strings": [
+      "Cockos"
+    ],
+    "au_manufacturer_codes": [
+      "COCK"
+    ],
+    "licensing": [
+      "bundled_with_daw"
+    ],
+    "notes": "REAPER, NINJAM, Reapeaks. All sold with licenses.",
+    "last_verified": null,
+    "provenance": "seed",
+    "verified": false
+  },
+  {
+    "id": "presonus",
+    "name": "PreSonus",
+    "aliases": [
+      "PreSonus Audio Electronics",
+      "PreSonus"
+    ],
+    "homepage": "https://www.presonus.com",
+    "support_url": null,
+    "bundle_id_prefixes": [
+      "com.presonus"
+    ],
+    "vst3_factory_vendor_strings": [
+      "PreSonus"
+    ],
+    "au_manufacturer_codes": [
+      "PSS"
+    ],
+    "licensing": [
+      "bundled_with_daw",
+      "vendor_account"
+    ],
+    "notes": null,
+    "last_verified": null,
+    "provenance": "seed",
+    "verified": false
+  },
+  {
+    "id": "avid",
+    "name": "Avid",
+    "aliases": [
+      "Avid Technology"
+    ],
+    "homepage": "https://www.avid.com",
+    "support_url": null,
+    "bundle_id_prefixes": [
+      "com.avid"
+    ],
+    "vst3_factory_vendor_strings": [
+      "Avid"
+    ],
+    "au_manufacturer_codes": [
+      "AVID"
+    ],
+    "licensing": [
+      "subscription",
+      "ilok_dongle"
+    ],
+    "notes": null,
+    "last_verified": null,
+    "provenance": "seed",
+    "verified": false
+  },
+  {
+    "id": "bitwig",
+    "name": "Bitwig",
+    "aliases": [
+      "Bitwig GmbH",
+      "Bitwig Studio"
+    ],
+    "homepage": "https://www.bitwig.com",
+    "support_url": null,
+    "bundle_id_prefixes": [
+      "com.bitwig"
+    ],
+    "vst3_factory_vendor_strings": [
+      "Bitwig"
+    ],
+    "au_manufacturer_codes": [
+      "BTWG"
+    ],
+    "licensing": [
+      "bundled_with_daw"
+    ],
+    "notes": null,
+    "last_verified": null,
+    "provenance": "seed",
+    "verified": false
+  },
+  {
+    "id": "synchro-arts",
+    "name": "Synchro Arts",
+    "aliases": [
+      "Synchro Arts Limited"
+    ],
+    "homepage": "https://www.synchroarts.com",
+    "support_url": null,
+    "bundle_id_prefixes": [
+      "com.synchroarts"
+    ],
+    "vst3_factory_vendor_strings": [
+      "Synchro Arts"
+    ],
+    "au_manufacturer_codes": [
+      "SYNC"
+    ],
+    "licensing": [
+      "vendor_serial"
+    ],
+    "notes": null,
+    "last_verified": null,
+    "provenance": "seed",
+    "verified": false
+  },
+  {
+    "id": "melodyne",
+    "name": "Celemony",
+    "aliases": [
+      "Celemony Software",
+      "Melodyne"
+    ],
+    "homepage": "https://www.celemony.com",
+    "support_url": null,
+    "bundle_id_prefixes": [
+      "com.celemony"
+    ],
+    "vst3_factory_vendor_strings": [
+      "Celemony"
+    ],
+    "au_manufacturer_codes": [
+      "CLMN"
+    ],
+    "licensing": [
+      "vendor_serial"
+    ],
+    "notes": null,
+    "last_verified": null,
+    "provenance": "seed",
+    "verified": false
+  },
+  {
+    "id": "acustica-audio",
+    "name": "Acustica Audio",
+    "aliases": [
+      "Acustica Audio Srl"
+    ],
+    "homepage": "https://www.acustica-audio.com",
+    "support_url": null,
+    "bundle_id_prefixes": [
+      "com.acusticaaudio"
+    ],
+    "vst3_factory_vendor_strings": [
+      "Acustica Audio"
+    ],
+    "au_manufacturer_codes": [
+      "ACST"
+    ],
+    "licensing": [
+      "vendor_serial"
+    ],
+    "notes": null,
+    "last_verified": null,
+    "provenance": "seed",
+    "verified": false
+  }
+]

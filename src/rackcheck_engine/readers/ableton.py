@@ -14,6 +14,7 @@ from ..detect import ProjectFormat
 from ..errors import CORRUPT_PROJECT, EngineError
 from ..model import (
     Confidence,
+    MediaRef,
     PluginFormat,
     PluginIdentity,
     PluginRef,
@@ -133,6 +134,9 @@ class AbletonReader:
         # Extract tracks and plugins
         self._extract_tracks(root, result)
 
+        # Extract media (samples)
+        self._extract_media(root, result, path.parent)
+
         return result
 
     def _parse_xml_safe(self, xml_bytes: bytes) -> ET.Element:
@@ -187,6 +191,10 @@ class AbletonReader:
 
         # Process all track types
         for track_id_counter, track_elem in enumerate(root.findall(".//Tracks/*"), 1):
+            # Ignore PreHearTrack
+            if track_elem.tag == "PreHearTrack":
+                continue
+
             track_id = f"t{track_id_counter}"
 
             # Determine track type
@@ -344,6 +352,17 @@ class AbletonReader:
     ) -> PluginRef | None:
         """Extract plugin information from a device element."""
         tag = device_elem.tag
+
+        # Handle Max for Live devices specially to extract .amxd name
+        if tag in ("MxDeviceAudioEffect", "MxDeviceInstrument", "MxDeviceMidiEffect"):
+            return self._extract_max_for_live_device(
+                device_elem,
+                plugin_id,
+                track_id,
+                slot_index,
+                tag,
+                nested_in,
+            )
 
         # Handle stock devices
         if tag in _STOCK_DEVICES:
@@ -644,3 +663,154 @@ class AbletonReader:
         if is_first_in_midi_track:
             return PluginRole.INSTRUMENT
         return PluginRole.UNKNOWN
+
+    def _extract_max_for_live_device(
+        self,
+        device_elem: ET.Element,
+        plugin_id: str,
+        track_id: str,
+        slot_index: int,
+        tag: str,
+        nested_in: str | None,
+    ) -> PluginRef:
+        """Extract Max for Live device information from Mx* element.
+
+        Extracts the .amxd file name from nested FileRef and uses it as the plugin name.
+        If no .amxd name is found, uses the element tag as the name.
+        """
+        # Determine role based on device type
+        role = (
+            PluginRole.INSTRUMENT
+            if tag == "MxDeviceInstrument"
+            else PluginRole.EFFECT
+        )
+
+        # Try to extract .amxd file name from FileRef
+        amxd_name = self._extract_amxd_filename(device_elem)
+        name = amxd_name if amxd_name else tag
+
+        bypassed = self._extract_bypass_state(device_elem)
+
+        return PluginRef(
+            id=plugin_id,
+            track_id=track_id,
+            slot_index=slot_index,
+            role=role,
+            format=PluginFormat.STOCK,
+            name=name,
+            vendor=None,
+            confidence=Confidence.PROBABLE,
+            bypassed=bypassed,
+            nested_in=nested_in,
+            identity=PluginIdentity(file_hint=amxd_name),
+        )
+
+    def _extract_amxd_filename(self, device_elem: ET.Element) -> str | None:
+        """Extract .amxd file name from FileRef elements within a device."""
+        # Look for FileRef elements anywhere in the device
+        for file_ref in device_elem.findall(".//FileRef"):
+            # Try Path first (absolute path, Live 11/12)
+            path_elem = file_ref.find("./Path")
+            if path_elem is not None:
+                path_value = path_elem.attrib.get("Value")
+                if path_value and path_value.endswith(".amxd"):
+                    return Path(path_value).name
+            # Try RelativePath (Live 10+)
+            rel_path_elem = file_ref.find("./RelativePath")
+            if rel_path_elem is not None:
+                rel_path_value = rel_path_elem.attrib.get("Value")
+                if rel_path_value and rel_path_value.endswith(".amxd"):
+                    return Path(rel_path_value).name
+        return None
+
+    def _extract_media(
+        self, root: ET.Element, result: ScanResult, als_folder: Path
+    ) -> None:
+        """Extract media references (samples) from SampleRef > FileRef elements."""
+        seen_paths: set[str] = set()
+
+        # Find all SampleRef > FileRef combinations throughout the document
+        for sample_ref in root.findall(".//SampleRef"):
+            file_ref = sample_ref.find("./FileRef")
+            if file_ref is None:
+                continue
+
+            # Extract path from FileRef
+            resolved_path = self._resolve_file_ref_path(file_ref, als_folder)
+            if resolved_path is None:
+                continue
+
+            # Dedupe by path
+            path_str = str(resolved_path)
+            if path_str in seen_paths:
+                continue
+            seen_paths.add(path_str)
+
+            # Check if file exists and is inside project folder
+            try:
+                exists = resolved_path.exists()
+                inside_project = self._is_inside_folder(resolved_path, als_folder)
+                size_bytes = resolved_path.stat().st_size if exists else None
+            except (OSError, ValueError):
+                # Never raise on odd paths
+                exists = False
+                inside_project = False
+                size_bytes = None
+
+            media_ref = MediaRef(
+                path=path_str,
+                exists=exists,
+                inside_project_folder=inside_project,
+                size_bytes=size_bytes,
+            )
+            result.media.append(media_ref)
+
+    def _resolve_file_ref_path(self, file_ref: ET.Element, als_folder: Path) -> Path | None:
+        """Resolve a FileRef to an absolute path.
+
+        Prefers absolute Path@Value (Live 11/12), else builds from RelativePath@Value
+        (Live 10+). For Live 9 style RelativePath > RelativePathElement@Dir, joins Dir values.
+        """
+        # Try absolute path first (Live 11/12)
+        path_elem = file_ref.find("./Path")
+        if path_elem is not None:
+            path_value = path_elem.attrib.get("Value")
+            if path_value:
+                try:
+                    return Path(path_value)
+                except (ValueError, TypeError):
+                    pass
+
+        # Try simple RelativePath (Live 10+)
+        rel_path_elem = file_ref.find("./RelativePath")
+        if rel_path_elem is not None:
+            rel_path_value = rel_path_elem.attrib.get("Value")
+            if rel_path_value:
+                try:
+                    return als_folder / rel_path_value
+                except (ValueError, TypeError):
+                    pass
+
+        # Try Live 9 style RelativePath > RelativePathElement@Dir
+        rel_path_parent = file_ref.find("./RelativePath")
+        if rel_path_parent is not None:
+            dir_parts = []
+            for rel_path_elem in rel_path_parent.findall("./RelativePathElement"):
+                dir_value = rel_path_elem.attrib.get("Dir")
+                if dir_value:
+                    dir_parts.append(dir_value)
+            if dir_parts:
+                try:
+                    return als_folder / Path(*dir_parts)
+                except (ValueError, TypeError):
+                    pass
+
+        return None
+
+    def _is_inside_folder(self, path: Path, folder: Path) -> bool:
+        """Check if path is inside folder."""
+        try:
+            path.resolve().relative_to(folder.resolve())
+            return True
+        except (ValueError, RuntimeError):
+            return False

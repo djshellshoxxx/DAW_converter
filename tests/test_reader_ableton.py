@@ -675,3 +675,250 @@ def test_audio_track_device_is_effect(tmp_path: Path):
 
     plugin = result.plugins[0]
     assert plugin.role == PluginRole.EFFECT  # Stock Eq8 is an effect
+
+
+def test_media_extraction_with_absolute_path(tmp_path: Path):
+    """Test extraction of media files with absolute paths."""
+    # Create a sample audio file
+    sample_file = tmp_path / "sample.wav"
+    sample_file.write_bytes(b"RIFF" + b"\x00" * 100)  # Dummy WAV
+
+    xml = f"""<?xml version="1.0" encoding="UTF-8"?>
+    <Ableton MajorVersion="5" Creator="Ableton Live 12.0.0">
+        <Tracks>
+            <AudioTrack>
+                <Name Value="Track 1"/>
+                <DeviceChain>
+                    <Devices/>
+                </DeviceChain>
+            </AudioTrack>
+        </Tracks>
+        <SampleRef>
+            <FileRef>
+                <Path Value="{sample_file}"/>
+            </FileRef>
+        </SampleRef>
+    </Ableton>
+    """
+    path = write_ableton_xml(tmp_path / "media.als", xml)
+    reader = AbletonReader()
+    result = reader.read(path)
+
+    assert len(result.media) == 1
+    media = result.media[0]
+    assert str(sample_file) in media.path
+    assert media.exists is True
+    assert media.inside_project_folder is True
+    assert media.size_bytes > 0
+
+
+def test_media_extraction_with_relative_path(tmp_path: Path):
+    """Test extraction of media files with relative paths (Live 10+)."""
+    # Create a sample audio file
+    sample_file = tmp_path / "sample.wav"
+    sample_file.write_bytes(b"RIFF" + b"\x00" * 100)
+
+    xml = """<?xml version="1.0" encoding="UTF-8"?>
+    <Ableton MajorVersion="5" Creator="Ableton Live 12.0.0">
+        <Tracks/>
+        <SampleRef>
+            <FileRef>
+                <RelativePath Value="sample.wav"/>
+            </FileRef>
+        </SampleRef>
+    </Ableton>
+    """
+    path = write_ableton_xml(tmp_path / "media.als", xml)
+    reader = AbletonReader()
+    result = reader.read(path)
+
+    assert len(result.media) == 1
+    media = result.media[0]
+    assert "sample.wav" in media.path
+    assert media.exists is True
+
+
+def test_media_deduplication(tmp_path: Path):
+    """Test that duplicate media paths are deduplicated."""
+    sample_file = tmp_path / "sample.wav"
+    sample_file.write_bytes(b"RIFF" + b"\x00" * 100)
+
+    xml = f"""<?xml version="1.0" encoding="UTF-8"?>
+    <Ableton MajorVersion="5" Creator="Ableton Live 12.0.0">
+        <Tracks/>
+        <SampleRef>
+            <FileRef>
+                <Path Value="{sample_file}"/>
+            </FileRef>
+        </SampleRef>
+        <SampleRef>
+            <FileRef>
+                <Path Value="{sample_file}"/>
+            </FileRef>
+        </SampleRef>
+    </Ableton>
+    """
+    path = write_ableton_xml(tmp_path / "media.als", xml)
+    reader = AbletonReader()
+    result = reader.read(path)
+
+    # Should have only 1 media entry despite 2 SampleRef elements
+    assert len(result.media) == 1
+
+
+def test_media_missing_file(tmp_path: Path):
+    """Test handling of missing media files."""
+    missing_path = tmp_path / "nonexistent.wav"
+
+    xml = f"""<?xml version="1.0" encoding="UTF-8"?>
+    <Ableton MajorVersion="5" Creator="Ableton Live 12.0.0">
+        <Tracks/>
+        <SampleRef>
+            <FileRef>
+                <Path Value="{missing_path}"/>
+            </FileRef>
+        </SampleRef>
+    </Ableton>
+    """
+    path = write_ableton_xml(tmp_path / "media.als", xml)
+    reader = AbletonReader()
+    result = reader.read(path)
+
+    assert len(result.media) == 1
+    media = result.media[0]
+    assert media.exists is False
+    assert media.size_bytes is None
+
+
+def test_max_for_live_audio_effect(tmp_path: Path):
+    """Test extraction of Max for Live audio effect with .amxd filename."""
+    xml = """<?xml version="1.0" encoding="UTF-8"?>
+    <Ableton MajorVersion="5" Creator="Ableton Live 12.0.0">
+        <Tracks>
+            <AudioTrack>
+                <Name Value="Track 1"/>
+                <DeviceChain>
+                    <Devices>
+                        <MxDeviceAudioEffect>
+                            <Name Value="M4L Effect"/>
+                            <On Value="true"/>
+                            <FileRef>
+                                <Path Value="/path/to/MyEffect.amxd"/>
+                            </FileRef>
+                        </MxDeviceAudioEffect>
+                    </Devices>
+                </DeviceChain>
+            </AudioTrack>
+        </Tracks>
+    </Ableton>
+    """
+    path = write_ableton_xml(tmp_path / "m4l.als", xml)
+    reader = AbletonReader()
+    result = reader.read(path)
+
+    assert len(result.plugins) == 1
+    plugin = result.plugins[0]
+    assert plugin.format == PluginFormat.STOCK
+    assert plugin.name == "MyEffect.amxd"
+    assert plugin.role == PluginRole.EFFECT
+    assert plugin.vendor is None
+    assert plugin.identity.file_hint == "MyEffect.amxd"
+
+
+def test_max_for_live_instrument(tmp_path: Path):
+    """Test extraction of Max for Live instrument."""
+    xml = """<?xml version="1.0" encoding="UTF-8"?>
+    <Ableton MajorVersion="5" Creator="Ableton Live 12.0.0">
+        <Tracks>
+            <MidiTrack>
+                <Name Value="Track 1"/>
+                <DeviceChain>
+                    <Devices>
+                        <MxDeviceInstrument>
+                            <Name Value="M4L Synth"/>
+                            <On Value="true"/>
+                            <FileRef>
+                                <RelativePath Value="MySynth.amxd"/>
+                            </FileRef>
+                        </MxDeviceInstrument>
+                    </Devices>
+                </DeviceChain>
+            </MidiTrack>
+        </Tracks>
+    </Ableton>
+    """
+    path = write_ableton_xml(tmp_path / "m4l_synth.als", xml)
+    reader = AbletonReader()
+    result = reader.read(path)
+
+    assert len(result.plugins) == 1
+    plugin = result.plugins[0]
+    assert plugin.format == PluginFormat.STOCK
+    assert plugin.name == "MySynth.amxd"
+    assert plugin.role == PluginRole.INSTRUMENT
+    assert plugin.vendor is None
+
+
+def test_max_for_live_no_amxd_name(tmp_path: Path):
+    """Test Max for Live device without .amxd filename falls back to tag name."""
+    xml = """<?xml version="1.0" encoding="UTF-8"?>
+    <Ableton MajorVersion="5" Creator="Ableton Live 12.0.0">
+        <Tracks>
+            <AudioTrack>
+                <Name Value="Track 1"/>
+                <DeviceChain>
+                    <Devices>
+                        <MxDeviceAudioEffect>
+                            <Name Value="M4L Effect"/>
+                            <On Value="true"/>
+                        </MxDeviceAudioEffect>
+                    </Devices>
+                </DeviceChain>
+            </AudioTrack>
+        </Tracks>
+    </Ableton>
+    """
+    path = write_ableton_xml(tmp_path / "m4l_no_name.als", xml)
+    reader = AbletonReader()
+    result = reader.read(path)
+
+    assert len(result.plugins) == 1
+    plugin = result.plugins[0]
+    assert plugin.name == "MxDeviceAudioEffect"
+    assert plugin.identity.file_hint is None
+
+
+def test_prehear_track_ignored(tmp_path: Path):
+    """Test that PreHearTrack is ignored and not counted in tracks."""
+    xml = f"""<?xml version="1.0" encoding="UTF-8"?>
+    <Ableton MajorVersion="5" Creator="Ableton Live 12.0.0">
+        <Tracks>
+            <AudioTrack>
+                <Name Value="Track 1"/>
+                <DeviceChain>
+                    <Devices>
+                        {_stock_device_xml('Eq8', False)}
+                    </Devices>
+                </DeviceChain>
+            </AudioTrack>
+            <PreHearTrack>
+                <Name Value="PreHear"/>
+                <DeviceChain>
+                    <Devices>
+                        {_stock_device_xml('Reverb', False)}
+                    </Devices>
+                </DeviceChain>
+            </PreHearTrack>
+        </Tracks>
+    </Ableton>
+    """
+    path = write_ableton_xml(tmp_path / "prehear.als", xml)
+    reader = AbletonReader()
+    result = reader.read(path)
+
+    # Should only have 1 track (the AudioTrack), PreHearTrack should be ignored
+    assert len(result.tracks) == 1
+    assert result.tracks[0].name == "Track 1"
+    # PreHearTrack's Reverb should not be extracted
+    assert len(result.plugins) == 1
+    assert result.plugins[0].name == "Eq8"

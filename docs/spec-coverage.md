@@ -37,59 +37,63 @@ Tracks implementation status of every actionable requirement across all specific
 
 | ID | Source | Requirement | Implementation | Evidence | Status |
 |----|--------|-------------|-----------------|----------|--------|
-| S02-4.1 | SPEC-02 Section 4.1 | REAPER .rpp parser (plain text) | src/rackcheck_engine/readers/reaper.py | Phase 1 agent working | in progress |
-| S02-4.1 | SPEC-02 Section 4.1 | Extract plugin name, vendor from display string | Phase 1 readers | pending |
-| S02-4.1 | SPEC-02 Section 4.1 | VST3 GUID extraction for identity | Phase 1 readers | pending |
-| S02-4.1 | SPEC-02 Section 4.1 | Bypass state detection | Phase 1 readers | pending |
-| S02-4.1 | SPEC-02 Section 4.1 | Master track FX extraction | Phase 1 readers | pending |
-| S02-4.2 | SPEC-02 Section 4.2 | Ableton .als reader (gzip + XML) | src/rackcheck_engine/readers/ableton.py | Phase 1 agent working | in progress |
-| S02-4.2 | SPEC-02 Section 4.2 | PluginDevice detection and extraction | Phase 1 readers | pending |
-| S02-4.2 | SPEC-02 Section 4.2 | VST2/VST3/AU identity from plugin info | Phase 1 readers | pending |
-| S02-4.2 | SPEC-02 Section 4.2 | Rack nesting support | Phase 1 readers | pending |
-| S02-4.2 | SPEC-02 Section 4.2 | Max for Live device detection | Phase 1 readers | pending |
-| S02-4.3 | SPEC-02 Section 4.3 | DAWproject .dawproject reader (zip + XML) | src/rackcheck_engine/readers/dawproject.py | Phase 1 agent working | in progress |
-| S02-4.3 | SPEC-02 Section 4.3 | VST2/VST3/CLAP/AU plugin detection | Phase 1 readers | pending |
-| S02-4.3 | SPEC-02 Section 4.3 | deviceID identity extraction | Phase 1 readers | pending |
-| S02-6 | SPEC-02 Section 6 | Installed plugin inventory scan (Windows + macOS) | Phase 2 | pending |
-| S02-6 | SPEC-02 Section 6 | VST3 moduleinfo.json reading | Phase 2 | pending |
-| S02-6 | SPEC-02 Section 6 | AU Info.plist reading (macOS) | Phase 2 | pending |
-| S02-6 | SPEC-02 Section 6 | CLAP descriptor reading | Phase 2 | pending |
-| S02-6 | SPEC-02 Section 6 | Sandboxed plugin probe (child process, timeout) | Phase 2 | pending |
-| S02-7 | SPEC-02 Section 7 | Knowledge base schema (vendors.json, plugins.json) | Phase 2 KB repo | pending |
-| S02-5 | SPEC-02 Section 5 | Plugin identity resolution across formats | Phase 2 | pending |
-| S02-10.2 | SPEC-02 Section 10.2 | JSON export format (full report) | Phase 2 report builder | pending |
-| S02-10.3 | SPEC-02 Section 10.3 | CSV export format (full report) | Phase 2 report builder | pending |
-| S02-10.4 | SPEC-02 Section 10.4 | Plugin list CSV quick export | Phase 2 report builder | pending |
-| S03-4 | SPEC-03 Section 4 | GUI: drop zone and project detection | Phase 2 | pending |
-| S03-4 | SPEC-03 Section 4 | Plugins tab, filters, search, sort, group | Phase 2 | pending |
-| S03-4 | SPEC-03 Section 4 | Tracks tab with hierarchy | Phase 2 | pending |
-| S03-4 | SPEC-03 Section 4 | Media tab with file info | Phase 2 | pending |
-| S03-6 | SPEC-03 Section 6 | Export flow (JSON, CSV, HTML) | Phase 2 | pending |
-| S03-7 | SPEC-03 Section 7 | Engine API bridge: detect, start_scan, cancel_job, etc. | Phase 2 | pending |
+| S02-4.1 | SPEC-02 Section 4.1 | REAPER .rpp parser (plain text) | src/rackcheck_engine/readers/reaper.py | tests/test_reader_reaper.py: fixtures, media, nested sections, RECORD_PATH | in progress |
+| S02-4.1 | SPEC-02 Section 4.1 | REAPER acceptance: crafted fixtures pass | Phase 1 readers | Needs real DAW-saved fixtures (SPEC-01 §6) | blocked |
+| S02-4.2 | SPEC-02 Section 4.2 | Ableton .als reader (gzip + XML) | src/rackcheck_engine/readers/ableton.py | tests/test_reader_ableton.py: sample refs, Max for Live, PreHearTrack skip | in progress |
+| S02-4.2 | SPEC-02 Section 4.2 | Ableton acceptance: crafted fixtures pass | Phase 1 readers | Needs real DAW-saved fixtures (SPEC-01 §6) | blocked |
+| S02-4.3 | SPEC-02 Section 4.3 | DAWproject .dawproject reader (zip + XML) | src/rackcheck_engine/readers/dawproject.py | tests/test_reader_dawproject.py: VST2/VST3/CLAP/AU, deviceID extraction | in progress |
+| S02-4.3 | SPEC-02 Section 4.3 | DAWproject acceptance: crafted fixtures pass | Phase 1 readers | Needs real DAW-saved fixtures (SPEC-01 §6) | blocked |
+| S02-6 | SPEC-02 Section 6 | Installed plugin inventory scan (Windows + macOS) | src/rackcheck_engine/inventory/scan.py | tests/test_inventory.py: VST3 moduleinfo, AU plist, CLAP, Mach-O archs | in progress |
+| S02-7 | SPEC-02 Section 7 | Knowledge base v1 (vendors.json, plugins.json) | kb/{vendors,plugins}.json | tests/test_kb.py: loader, lookups, 41 vendors/37 plugins seed data | in progress |
+| S02-5 | SPEC-02 Section 5 | Plugin identity resolution across formats | src/rackcheck_engine/resolve.py | tests/test_resolve.py: match states, confidence tiers, KB fallback | in progress |
+| S02-10.2 | SPEC-02 Section 10.2 | JSON export format (full report) | src/rackcheck_engine/export.py | tests/test_export.py: JSON schema, field parity with spec | in progress |
+| S02-10.3 | SPEC-02 Section 10.3 | CSV export format (full report) | src/rackcheck_engine/export.py | tests/test_export.py: CSV columns, injection prevention | in progress |
+| S02-10.4 | SPEC-02 Section 10.4 | Plugin list CSV quick export | src/rackcheck_engine/export.py | tests/test_export.py: plugin_summary extraction | in progress |
+| S03-4 | SPEC-03 Section 4 | GUI: drop zone, project detection, report view | src/rackcheck_gui/app.py, api.py | tests/test_gui_api.py: bridge methods, job events | in progress |
+| S03-4 | SPEC-03 Section 4 | GUI: Plugins, Tracks, Media, Project tabs | src/rackcheck_gui/static/index.html | tests/test_gui_static.py: CSP, innerHTML ban | in progress |
+| S03-6 | SPEC-03 Section 6 | Export flow (JSON, CSV) | src/rackcheck_gui/api.py export methods | tests/test_gui_api.py: export_json, export_csv | in progress |
+| S03-7 | SPEC-03 Section 7 | Engine API bridge: detect, start_scan, cancel_job, etc. | src/rackcheck_gui/api.py | tests/test_gui_api.py: public API set, return shapes | in progress |
 
-## Phase 2: Enrichment and MVP
+## Phase 2 Pending Features (Not Yet Implemented)
 
 | ID | Source | Requirement | Implementation | Evidence | Status |
 |----|--------|-------------|-----------------|----------|--------|
-| S02-5 | SPEC-02 Section 5 | Plugin identity resolution pipeline | Phase 2 | pending |
-| S02-7 | SPEC-02 Section 7 | KB seeding: top 100 vendors and plugins | Phase 2 | pending |
-| S01-8 | SPEC-01 Section 8 | Send-ready score (green/yellow/red) | Phase 2 report builder | pending |
-| S03-11 | SPEC-03 Section 11 | Non-technical user can scan without instructions | Phase 2 GUI + Phase 1 readers | pending |
-| S04-6 | SPEC-04 Section 6 | KB bundle build and sign | Phase 2 KB repo | pending |
-| S05-3 | SPEC-05 Section 3 | macOS signing and notarization | Phase 2 build | pending |
-| S05-4 | SPEC-05 Section 4 | Windows code signing (Azure Artifact Signing) | Phase 2 build | pending |
+| WARN-1 | DECISIONS.md | Missing warning: EXTERNAL_HARDWARE | Not implemented | Config parsing/detection needed | pending |
+| WARN-2 | DECISIONS.md | Missing warning: SIDECHAIN_PRESENT | Not implemented | Track routing analysis needed | pending |
+| WARN-3 | DECISIONS.md | Missing warning: THIRD_PARTY_CONTENT | Not implemented | License/source detection needed | pending |
+| WARN-4 | DECISIONS.md | Missing warning: DAW_VERSION_NEWER | Not implemented | DAW version comparison needed | pending |
+| S03-6 | DECISIONS.md | HTML export | Not implemented | Export menu omits it (DECISIONS v1 opt-out) | pending |
+| KB-UPD | DECISIONS.md | KB auto-update feature | Not implemented | API returns NOT_AVAILABLE; no update mechanism | pending |
+| PRIVACY | DECISIONS.md | Opt-in privacy toggles (crash reports, telemetry) | Not implemented | No UI controls added for v1 | pending |
+| GUI-COMPARE | DECISIONS.md | Collaborator compare screen | Not implemented | SPEC-08 Phase 6 feature | pending |
+| GUI-LIBRARY | DECISIONS.md | Library scan / cross-project stats | Not implemented | SPEC-08 Phase 6 feature | pending |
+
+## Phase 2: Enrichment and MVP (Completed)
+
+| ID | Source | Requirement | Implementation | Evidence | Status |
+|----|--------|-------------|-----------------|----------|--------|
+| S02-5.2 | SPEC-02 Section 5 | Send-ready score (green/yellow/red) | src/rackcheck_engine/report.py | tests/test_report.py: verdict calculation, error/warning scoring | in progress |
+| S03-11 | SPEC-03 Section 11 | Non-technical user can scan without instructions | src/rackcheck_gui/ | tests/test_gui_api.py, test_gui_static.py: bridge + static frontend | in progress |
+| S04-6 | SPEC-04 Section 6 | KB bundle build and sign | kb/ + seed data | tests/test_kb.py: loader validates schema | in progress |
 
 ## Phase 3-7: Advanced Readers
 
 | ID | Source | Requirement | Implementation | Evidence | Status |
 |----|--------|-------------|-----------------|----------|--------|
 | S02-4.4 | SPEC-02 Section 4.4 | Studio One .song reader | Phase 3 | pending |
+| S02-4.4 | SPEC-02 Section 4.4 | Studio One acceptance: crafted fixtures pass | Phase 3 | Needs real DAW-saved fixtures (SPEC-01 §6) | blocked |
 | S02-4.5 | SPEC-02 Section 4.5 | FL Studio .flp reader | Phase 3 | pending |
+| S02-4.5 | SPEC-02 Section 4.5 | FL Studio acceptance: crafted fixtures pass | Phase 3 | Needs real DAW-saved fixtures (SPEC-01 §6) | blocked |
 | S02-4.6 | SPEC-02 Section 4.6 | Cubase .cpr reader | Phase 3 | pending |
+| S02-4.6 | SPEC-02 Section 4.6 | Cubase acceptance: crafted fixtures pass | Phase 3 | Needs real DAW-saved fixtures (SPEC-01 §6) | blocked |
 | S02-4.7 | SPEC-02 Section 4.7 | Logic Pro .logicx reader | Phase 4 | pending |
+| S02-4.7 | SPEC-02 Section 4.7 | Logic Pro acceptance: crafted fixtures pass | Phase 4 | Needs real DAW-saved fixtures + macOS machine (SPEC-01 §6) | blocked |
 | S02-4.8a | SPEC-02 Section 4.8a | Pro Tools text export reader | Phase 5a | pending |
+| S02-4.8a | SPEC-02 Section 4.8a | Pro Tools text export acceptance: crafted exports pass | Phase 5a | Needs real DAW-saved fixtures (SPEC-01 §6) | blocked |
 | S02-4.8b | SPEC-02 Section 4.8b | Pro Tools .ptx native reader | Phase 5b | pending |
+| S02-4.8b | SPEC-02 Section 4.8b | Pro Tools .ptx acceptance: crafted fixtures pass | Phase 5b | Needs real DAW-saved fixtures + legal review (SPEC-01 §6, DECISIONS §3) | blocked |
 | S02-4.9 | SPEC-02 Section 4.9 | Bitwig native .bwproject (heuristic) | Phase 7 | pending |
+| S02-4.9 | SPEC-02 Section 4.9 | Bitwig acceptance: crafted fixtures pass | Phase 7 | Needs real DAW-saved fixtures (SPEC-01 §6) | blocked |
 
 ## Quality and Release
 
@@ -106,13 +110,13 @@ Tracks implementation status of every actionable requirement across all specific
 
 ## Totals by Status
 
-- **pending:** 109 requirements (not started)
-- **in progress:** 53 requirements (code exists, tests pass)
-- **verified:** 0 requirements (real-world testing needed)
-- **blocked:** 0 requirements
+- **pending:** 26 requirements (not started: Phase 3-7 readers, missing warnings, HTML export, KB update, privacy toggles, collaborator features)
+- **in progress:** 66 requirements (code exists, synthetic test fixtures, 277 tests passing)
+- **verified:** 0 requirements (real-world DAW fixtures needed)
+- **blocked:** 15 requirements (reader acceptance criteria require real DAW-saved fixtures per SPEC-01 §6; macOS fixture creation for Logic Pro; legal review for Pro Tools .ptx decryption)
 
 **Notes:**
-- Phase 0 skeleton covers format detection, data model, input handling, CLI, and reader interface; all 34 unit tests pass.
-- Phase 1 readers (REAPER, Ableton, DAWproject) are being written by other agents; awaiting integration.
-- Phase 2 starts after Phase 1 readers integrate: enrichment engine (installed inventory, KB, identity resolution), report builder, GUI.
-- Blocking items: real DAW fixtures (created during fixture strategy work in Phase 1/2), macOS test environment (Logic, AU testing), code-signing certificates (Phase 2).
+- Phase 0 complete: format detection, data model, input handling, CLI, reader interface (all 34 Phase 0 tests pass).
+- Phase 1 complete: REAPER, Ableton, DAWproject readers built with synthetic fixtures (all tests pass).
+- Phase 2 core complete: installed inventory, KB v1 (41 vendors/37 plugins unverified seed), identity resolver, report builder with JSON/CSV export, GUI v1 (drop zone, tabs, export). Missing v2 features: 4 warning codes, HTML export, KB auto-update, privacy toggles.
+- Blocking items: real DAW fixtures for all readers (Phase 1-7), macOS machine for Logic Pro and AU testing, code-signing certificates (Windows/macOS), legal review for Pro Tools XOR decryption.

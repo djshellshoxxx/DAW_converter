@@ -26,3 +26,15 @@ def reader_for(fmt: ProjectFormat) -> Reader | None:
 
 def supported_formats() -> list[ProjectFormat]:
     return sorted(_REGISTRY)
+
+
+def _register_builtin() -> None:
+    from .ableton import AbletonReader
+    from .dawproject import DawprojectReader
+    from .reaper import ReaperReader
+
+    for reader in (ReaperReader(), AbletonReader(), DawprojectReader()):
+        register(reader)
+
+
+_register_builtin()

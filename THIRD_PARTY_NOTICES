@@ -1,0 +1,13 @@
+THIRD-PARTY SOFTWARE NOTICES
+
+Rackcheck v1.0.0 does not include any third-party source code or binaries from outside projects.
+
+All Phase 0 code is original and written directly for this project. The implementation uses only Python's standard library (stdlib).
+
+External projects are consulted for format documentation and are listed in docs/LICENSE-LEDGER.md with their licenses. No code from GPL, AGPL, or other restricted-license projects has been copied.
+
+When third-party code is added (e.g., as Python package dependencies or in later reader implementations), it will be listed here with its copyright and license text.
+
+---
+
+Date: 2026-09-29

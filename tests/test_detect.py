@@ -4,8 +4,8 @@ import gzip
 from pathlib import Path
 
 import pytest
-from conftest import write_als, write_dawproject, write_logic_bundle, write_rpp, write_zip
 
+from conftest import write_als, write_dawproject, write_logic_bundle, write_rpp, write_zip
 from rackcheck_engine.detect import ProjectFormat, detect
 from rackcheck_engine.model import Confidence
 

@@ -13,7 +13,10 @@ from pathlib import Path
 
 
 def write_als(path: Path) -> Path:
-    xml = b'<?xml version="1.0" encoding="UTF-8"?>\n<Ableton MajorVersion="5" Creator="Ableton Live 12.1.5"></Ableton>'
+    xml = (
+        b'<?xml version="1.0" encoding="UTF-8"?>\n'
+        b'<Ableton MajorVersion="5" Creator="Ableton Live 12.1.5"></Ableton>'
+    )
     path.write_bytes(gzip.compress(xml))
     return path
 

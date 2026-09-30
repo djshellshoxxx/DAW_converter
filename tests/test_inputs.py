@@ -4,8 +4,8 @@ import zipfile
 from pathlib import Path
 
 import pytest
-from conftest import write_als, write_dawproject, write_logic_bundle, write_rpp, write_zip
 
+from conftest import write_als, write_dawproject, write_logic_bundle, write_rpp, write_zip
 from rackcheck_engine.detect import ProjectFormat
 from rackcheck_engine.errors import ARCHIVE_REJECTED, PATH_NOT_FOUND, EngineError
 from rackcheck_engine.inputs import resolve

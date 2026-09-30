@@ -68,7 +68,9 @@ def _looks_like_backup(path: Path, root: Path) -> bool:
 def resolve(path: str | os.PathLike[str], limits: Limits = DEFAULT_LIMITS) -> ResolvedInput:
     root = Path(path)
     if not root.exists():
-        raise EngineError(PATH_NOT_FOUND, "That file or folder no longer exists.", {"path": str(root)})
+        raise EngineError(
+            PATH_NOT_FOUND, "That file or folder no longer exists.", {"path": str(root)}
+        )
     result = ResolvedInput(path=str(root))
     try:
         _collect(root, root, result, limits, depth=0, from_archive=None)

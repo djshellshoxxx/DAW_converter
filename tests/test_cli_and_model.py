@@ -3,8 +3,7 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
-from conftest import write_als
-
+from conftest import write_als, write_logic_bundle
 from rackcheck_engine.cli import EXIT_ERROR, main
 from rackcheck_engine.model import (
     Confidence,
@@ -19,13 +18,22 @@ from rackcheck_engine.model import (
 
 
 def test_scan_json_reports_reader_not_available(tmp_path: Path, capsys):
-    write_als(tmp_path / "Song.als")
-    code = main(["scan", str(tmp_path / "Song.als"), "--json"])
+    # Logic has no reader until Phase 4.
+    write_logic_bundle(tmp_path / "Song.logicx")
+    code = main(["scan", str(tmp_path / "Song.logicx"), "--json"])
     out = json.loads(capsys.readouterr().out)
     assert code == EXIT_ERROR
     scan = out["scans"][0]
-    assert scan["detection"]["format"] == "ableton_als"
+    assert scan["detection"]["format"] == "logic_bundle"
     assert scan["error"]["code"] == "READER_NOT_AVAILABLE"
+
+
+def test_scan_json_reads_ableton(tmp_path: Path, capsys):
+    write_als(tmp_path / "Song.als")
+    code = main(["scan", str(tmp_path / "Song.als"), "--json"])
+    out = json.loads(capsys.readouterr().out)
+    assert code == 0
+    assert out["scans"][0]["result"]["source"]["daw_version"]
 
 
 def test_scan_unsupported_file(tmp_path: Path, capsys):

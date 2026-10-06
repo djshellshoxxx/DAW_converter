@@ -117,9 +117,14 @@ class ScanResult:
     plugins: list[PluginRef] = field(default_factory=list)
     media: list[MediaRef] = field(default_factory=list)
     warnings: list[str] = field(default_factory=list)
+    # Reader evidence used by report enrichment; kept out of the stable ScanResult
+    # JSON shape until its public schema is versioned.
+    external_hardware_tracks: list[str] = field(default_factory=list, repr=False)
 
     def to_dict(self) -> dict[str, Any]:
-        return asdict(self)
+        data = asdict(self)
+        data.pop("external_hardware_tracks", None)
+        return data
 
     def to_json(self, indent: int | None = 2) -> str:
         return json.dumps(self.to_dict(), indent=indent, ensure_ascii=False)

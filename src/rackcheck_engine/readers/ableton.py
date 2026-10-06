@@ -268,6 +268,12 @@ class AbletonReader:
             plugin_id_counter += 1
             plugin_id = f"p{plugin_id_counter}"
 
+            # These native Ableton devices explicitly connect a project to external
+            # hardware. Preserve the containing track ID for the readiness report.
+            if (device_elem.tag in ("ExternalInstrument", "ExternalAudioEffect")
+                    and track_id not in result.external_hardware_tracks):
+                result.external_hardware_tracks.append(track_id)
+
             # Check for nested racks
             if self._is_rack(device_elem.tag):
                 plugin_id_counter = self._process_rack(

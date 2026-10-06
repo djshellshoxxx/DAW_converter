@@ -51,11 +51,12 @@
 - Timeline: 8-12 hours (human effort, can be parallelized)
 
 ### 4. Implement missing warning codes
-- EXTERNAL_HARDWARE: scan project config for hardware inserts (not yet parseable from Ableton/REAPER APIs)
+- EXTERNAL_HARDWARE: Ableton ExternalInstrument and ExternalAudioEffect detected; REAPER and other readers still need explicit evidence
 - SIDECHAIN_PRESENT: track routing analysis (REAPER .rpp has routing data, Ableton XML has send tracks)
 - THIRD_PARTY_CONTENT: project file hash / license marker detection (Phase 6 feature)
 - DAW_VERSION_NEWER: DAW export header version check (REAPER version in .rpp, Ableton version in .als XML)
-- Timeline: 2-3 hours (after fixture validation confirms reader output correctness)
+- See specs/SPEC-10-project-readiness-warnings.md for evidence thresholds and acceptance criteria.
+- Timeline: remaining warnings follow fixture validation and DAW-version inventory support.
 
 ### 5. Phase 2 release: Signing, packaging, and build pipeline (SPEC-05)
 - Windows: Inno Setup installer + Azure Artifact Signing (EV code signing cert needed)
@@ -113,7 +114,8 @@
 **Known limitations:**
 - Synthetic fixtures only; real DAW acceptance criteria blocked by unavailable real projects
 - KB seed is unverified (41/~100 target vendors)
-- 4 warning codes not implemented (EXTERNAL_HARDWARE, SIDECHAIN_PRESENT, THIRD_PARTY_CONTENT, DAW_VERSION_NEWER)
+- Readiness warnings are partial: EXTERNAL_HARDWARE is implemented for Ableton; SIDECHAIN_PRESENT, THIRD_PARTY_CONTENT, DAW_VERSION_NEWER, and other-reader hardware evidence remain.
+- Reader timeout enforcement is specified in specs/SPEC-11-reader-resource-limits.md and remains pending.
 - HTML export deferred to v1.1 (low user impact)
 - No backup-scan offer, KB auto-update, privacy opt-ins (v1.1 features)
 - GUI not tested in real window (visual rendering not verified)
@@ -140,4 +142,3 @@
 
 **Last updated:** 2026-10-06 11:45 UTC  
 **Contributors:** Sheldon Davidson (automation, Phase 0-2 core); phase 1 agents (REAPER/Ableton/DAWproject readers)
-

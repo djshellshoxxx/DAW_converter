@@ -247,3 +247,8 @@ A: See SPEC-09. The recommendation is a free tier (scan any project, see the rep
 **Q: Is there any tracking or telemetry?**  
 A: No. All scans stay on your machine. Optional opt-in reports (unknown plugins, crash logs) are off by default and send only the fields you approve. See SPEC-07 for the threat model and privacy design.
 
+
+
+## Plain-language overview
+
+See [ELI5: What Rackcheck does](ELI5.md) for a simple explanation of the project and its current early-stage status.

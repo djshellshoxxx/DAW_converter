@@ -14,7 +14,7 @@ from enum import StrEnum
 from pathlib import Path
 
 from .model import Confidence
-from .safety import read_gzip_prefix
+from .safety import check_zip, read_gzip_prefix
 
 
 class ProjectFormat(StrEnum):
@@ -181,6 +181,10 @@ def detect(path: Path) -> Detection:
 def _detect_zip(path: Path) -> Detection:
     try:
         with zipfile.ZipFile(path) as zf:
+            # Validate archive size, entry count, compression ratios and paths before
+            # building a second in-memory copy of its complete entry list.  This also
+            # keeps format detection under the same limits as extraction and readers.
+            check_zip(zf)
             names = {n.replace("\\", "/") for n in zf.namelist()}
     except (zipfile.BadZipFile, OSError) as exc:
         return _det(path, ProjectFormat.UNSUPPORTED, None, f"Damaged zip archive: {exc}")

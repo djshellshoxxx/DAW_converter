@@ -31,6 +31,11 @@ class _UnexpectedFailureReader:
         raise RuntimeError("private parser detail")
 
 
+class _MalformedResultReader:
+    def read(self, path: Path) -> ScanResult:
+        return "not a ScanResult"  # type: ignore[return-value]
+
+
 def test_reader_timeout_terminates_worker_and_later_scan_succeeds(tmp_path: Path):
     started = time.monotonic()
     with pytest.raises(EngineError) as caught:
@@ -60,3 +65,11 @@ def test_reader_hides_unexpected_worker_exception_details(tmp_path: Path):
                            timeout_seconds=5)
     assert caught.value.code == CORRUPT_PROJECT
     assert "private parser detail" not in caught.value.message
+
+
+def test_reader_rejects_malformed_worker_result(tmp_path: Path):
+    with pytest.raises(EngineError) as caught:
+        _read_with_timeout(_MalformedResultReader(), tmp_path / "malformed.project",
+                           timeout_seconds=5)
+    assert caught.value.code == CORRUPT_PROJECT
+    assert caught.value.message == "Could not read this project file."

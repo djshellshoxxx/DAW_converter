@@ -107,7 +107,7 @@ def _read_with_timeout(
         try:
             payload = receive_connection.recv_bytes(_MAX_READER_RESULT_BYTES)
             message = pickle.loads(payload)
-        except (EOFError, OSError, pickle.PickleError, ValueError, TypeError):
+        except Exception:
             raise EngineError(
                 CORRUPT_PROJECT,
                 "The isolated project reader returned invalid data.",

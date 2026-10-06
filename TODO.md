@@ -115,7 +115,7 @@
 - Synthetic fixtures only; real DAW acceptance criteria blocked by unavailable real projects
 - KB seed is unverified (41/~100 target vendors)
 - Readiness warnings are partial: EXTERNAL_HARDWARE is implemented for Ableton; SIDECHAIN_PRESENT, THIRD_PARTY_CONTENT, DAW_VERSION_NEWER, and other-reader hardware evidence remain.
-- Reader timeout enforcement is specified in specs/SPEC-11-reader-resource-limits.md and remains pending.
+- Reader timeout enforcement is partially implemented in specs/SPEC-11-reader-resource-limits.md; cleanup/IPC edge cases and cross-platform CI remain.
 - HTML export deferred to v1.1 (low user impact)
 - No backup-scan offer, KB auto-update, privacy opt-ins (v1.1 features)
 - GUI not tested in real window (visual rendering not verified)

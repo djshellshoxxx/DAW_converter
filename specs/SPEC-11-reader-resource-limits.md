@@ -1,6 +1,6 @@
 # SPEC-11: Reader resource limits
 
-**Status:** planned  
+**Status:** implementation in progress  
 **Scope:** close the 60-second reader-timeout requirement in SPEC-06 and untrusted
 input resource-exhaustion risks in SPEC-07.
 
@@ -12,6 +12,9 @@ failure without leaving workers or temporary files behind.
 ## 2. Requirements
 
 - A reader has a configurable hard wall-clock deadline, default 60 seconds.
+- The reader runs in a spawned child process that is terminated and reaped at the
+  deadline; timeout errors use the stable READER_TIMEOUT code.
+- Serialized reader results are capped at 64 MiB.
 - The deadline stops CPU work; a caller-side timeout that leaves the reader running
   is insufficient.
 - A timeout produces the existing structured error shape, identifies the input

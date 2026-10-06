@@ -101,7 +101,7 @@ Tracks implementation status of every actionable requirement across all specific
 |----|--------|-------------|-----------------|----------|--------|
 | S06-2 | SPEC-06 Section 2 | Fixture library structure | fixtures/ | Awaiting fixture creation in Phase 1 | pending |
 | S06-3 | SPEC-06 Section 3 | Detection robustness tests | tests/test_detect.py | Truncation, corruption tests | in progress |
-| S06-3 | SPEC-06 Section 3; SPEC-11 | Reader timeout enforcement (60 s) | Phase 2 engine | SPEC-11 acceptance tests not implemented | pending |
+| S06-3 | SPEC-06 Section 3; SPEC-11 | Reader timeout enforcement (60 s) | src/rackcheck_engine/service.py | tests/test_service_timeout.py: termination, subsequent scan, structured and sanitized errors; more IPC/cleanup coverage pending | in progress |
 | S07-1 | SPEC-07 Section 1 | Threat model mitigations | safety.py, inputs.py | Zip bomb/slip, gzip bomb, XML entity protections | in progress |
 | S07-2 | SPEC-07 Section 2 | Data handling policy | DECISIONS.md, privacy docs | pending |
 | S07-4.1 | SPEC-07 Section 4.1 | License compliance checklist | docs/LICENSE-LEDGER.md | See separate file | in progress |

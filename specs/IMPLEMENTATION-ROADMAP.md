@@ -9,7 +9,7 @@ specs; this file records dependencies and what can be verified locally.
 | Capability | Spec | State | Next action |
 |---|---|---|---|
 | Project readiness warnings | SPEC-02 §10.5; SPEC-10 | In progress | Implement explicit evidence first; start with Ableton external hardware. |
-| Reader resource limits | SPEC-07 §1; SPEC-11 | Pending | Enforce a hard reader deadline and cleanup behavior. |
+| Reader resource limits | SPEC-07 §1; SPEC-11 | In progress | Hard deadline and bounded reader result implemented; finish cleanup/IPC edge tests and cross-platform CI. |
 | XML and archive safety | SPEC-02 §2; SPEC-07 §1 | Implemented; coverage reconciliation needed | Verify adversarial cases against current parsers and update evidence. |
 | Knowledge base | SPEC-04 | Seed data exists; verification/update pending | Verify records; updates need signing key and distribution endpoint. |
 | Packaging and signing | SPEC-05 | Pending | Build locally; signing acceptance needs platform certificates. |

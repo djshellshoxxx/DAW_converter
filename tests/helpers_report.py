@@ -68,7 +68,7 @@ def make_kb(verified=True) -> KnowledgeBase:
 
 
 def scan(plugins, tracks=None, media=None, warnings=None, path="C:/proj/Song.rpp",
-         fmt="reaper_rpp", sr=48000, tempo=120.0) -> ScanResult:
+         fmt="reaper_rpp", sr=48000, tempo=120.0, external_hardware_tracks=None) -> ScanResult:
     return ScanResult(
         source=SourceInfo(path=path, format=fmt, daw_name="REAPER", daw_version="7.22"),
         project=ProjectInfo(tempo_bpm=tempo, time_signature="4/4", sample_rate=sr),
@@ -76,4 +76,5 @@ def scan(plugins, tracks=None, media=None, warnings=None, path="C:/proj/Song.rpp
             TrackRef(id="t1", name="Bass", type=TrackType.INSTRUMENT,
                      devices=[p.id for p in plugins])],
         plugins=plugins, media=media or [], warnings=warnings or [],
+        external_hardware_tracks=external_hardware_tracks or [],
     )

@@ -452,6 +452,25 @@ def test_corrupt_gzip(tmp_path: Path):
     assert exc_info.value.code == CORRUPT_PROJECT
 
 
+@pytest.mark.parametrize("device_tag", ["ExternalInstrument", "ExternalAudioEffect"])
+def test_external_hardware_device_records_containing_track(tmp_path: Path, device_tag: str):
+    xml = f"""<?xml version="1.0" encoding="UTF-8"?>
+    <Ableton MajorVersion="5" Creator="Ableton Live 12.0.0">
+        <Tracks>
+            <AudioTrack>
+                <Name Value="Hardware Track"/>
+                <DeviceChain>
+                    <Devices><{device_tag}><On Value="true"/></{device_tag}></Devices>
+                </DeviceChain>
+            </AudioTrack>
+        </Tracks>
+    </Ableton>
+    """
+    path = write_ableton_xml(tmp_path / "hardware.als", xml)
+    result = AbletonReader().read(path)
+    assert result.external_hardware_tracks == ["t1"]
+
+
 def test_time_signature_extraction(tmp_path: Path):
     """Test extraction of time signature from MasterTrack."""
     xml = """<?xml version="1.0" encoding="UTF-8"?>

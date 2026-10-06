@@ -58,10 +58,10 @@ Tracks implementation status of every actionable requirement across all specific
 
 | ID | Source | Requirement | Implementation | Evidence | Status |
 |----|--------|-------------|-----------------|----------|--------|
-| WARN-1 | DECISIONS.md | Missing warning: EXTERNAL_HARDWARE | Not implemented | Config parsing/detection needed | pending |
-| WARN-2 | DECISIONS.md | Missing warning: SIDECHAIN_PRESENT | Not implemented | Track routing analysis needed | pending |
-| WARN-3 | DECISIONS.md | Missing warning: THIRD_PARTY_CONTENT | Not implemented | License/source detection needed | pending |
-| WARN-4 | DECISIONS.md | Missing warning: DAW_VERSION_NEWER | Not implemented | DAW version comparison needed | pending |
+| WARN-1 | SPEC-10 | EXTERNAL_HARDWARE | Ableton reader + report builder | tests/test_reader_ableton.py, tests/test_report.py; other readers pending | in progress |
+| WARN-2 | SPEC-10 | SIDECHAIN_PRESENT | Not implemented | Explicit routing evidence required | pending |
+| WARN-3 | SPEC-10 | THIRD_PARTY_CONTENT | Not implemented | KB or explicit path evidence required | pending |
+| WARN-4 | SPEC-10 | DAW_VERSION_NEWER | Not implemented | Installed DAW version source required | pending |
 | S03-6 | DECISIONS.md | HTML export | Not implemented | Export menu omits it (DECISIONS v1 opt-out) | pending |
 | KB-UPD | DECISIONS.md | KB auto-update feature | Not implemented | API returns NOT_AVAILABLE; no update mechanism | pending |
 | PRIVACY | DECISIONS.md | Opt-in privacy toggles (crash reports, telemetry) | Not implemented | No UI controls added for v1 | pending |
@@ -101,7 +101,7 @@ Tracks implementation status of every actionable requirement across all specific
 |----|--------|-------------|-----------------|----------|--------|
 | S06-2 | SPEC-06 Section 2 | Fixture library structure | fixtures/ | Awaiting fixture creation in Phase 1 | pending |
 | S06-3 | SPEC-06 Section 3 | Detection robustness tests | tests/test_detect.py | Truncation, corruption tests | in progress |
-| S06-3 | SPEC-06 Section 3 | Reader timeout enforcement (60 s) | Phase 2 engine | pending |
+| S06-3 | SPEC-06 Section 3; SPEC-11 | Reader timeout enforcement (60 s) | src/rackcheck_engine/service.py | tests/test_service_timeout.py: termination, subsequent scan, structured and sanitized errors; more IPC/cleanup coverage pending | in progress |
 | S07-1 | SPEC-07 Section 1 | Threat model mitigations | safety.py, inputs.py | Zip bomb/slip, gzip bomb, XML entity protections | in progress |
 | S07-2 | SPEC-07 Section 2 | Data handling policy | DECISIONS.md, privacy docs | pending |
 | S07-4.1 | SPEC-07 Section 4.1 | License compliance checklist | docs/LICENSE-LEDGER.md | See separate file | in progress |

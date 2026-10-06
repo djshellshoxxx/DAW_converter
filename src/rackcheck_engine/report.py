@@ -723,6 +723,14 @@ def build_report(
     # warnings
     warnings = _plugin_warnings(plugins, daw_name)
     warnings += _media_warnings(media, unused, folder_files is not None)
+    if scan.external_hardware_tracks:
+        track_ids = list(dict.fromkeys(scan.external_hardware_tracks))
+        warnings.append({
+            "code": "EXTERNAL_HARDWARE", "severity": "warning",
+            "message": "This project uses external audio hardware; collaborators need access "
+                       "to the same hardware",
+            "related_ids": track_ids,
+        })
     if any("heuristic" in p["flags"] for p in plugins):
         n = sum(1 for p in plugins if "heuristic" in p["flags"])
         warnings.append({

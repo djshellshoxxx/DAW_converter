@@ -156,6 +156,15 @@ def test_reader_warnings_pass_through():
     assert w["message"] == "odd thing" and w["severity"] == "info"
 
 
+def test_external_hardware_warning_uses_track_ids():
+    r = _build([], [], make_kb(), fmt="ableton_als",
+               external_hardware_tracks=["t1", "t1", "t2"])
+    (warning,) = _codes(r, "EXTERNAL_HARDWARE")
+    assert warning["severity"] == "warning"
+    assert warning["related_ids"] == ["t1", "t2"]
+    assert "external audio hardware" in warning["message"]
+
+
 def test_green_when_clean():
     r = _build([ref(vst3_cid=CID)], [inst(vst3_cid=CID)], make_kb())
     assert r["summary"]["send_ready"] == {"score": "green", "reasons": []}

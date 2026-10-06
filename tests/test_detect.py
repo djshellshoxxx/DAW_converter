@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import gzip
+import zipfile
 from pathlib import Path
 
 import pytest
@@ -50,6 +51,25 @@ def test_studio_one_song(tmp_path: Path):
 def test_generic_zip(tmp_path: Path):
     p = write_zip(tmp_path / "a.zip", {"readme.txt": b"hi"})
     assert detect(p).format == ProjectFormat.GENERIC_ZIP
+
+
+def test_zip_limits_are_checked_before_enumerating_names(tmp_path: Path, monkeypatch):
+    p = write_zip(tmp_path / "too-many.zip", {"readme.txt": b"hi"})
+
+    def reject_archive(_zf):
+        from rackcheck_engine.errors import ARCHIVE_REJECTED, EngineError
+
+        raise EngineError(ARCHIVE_REJECTED, "Archive exceeds the safe entry limit.")
+
+    def names_must_not_be_enumerated(_zf):
+        raise AssertionError("archive entry names were enumerated before safety validation")
+
+    monkeypatch.setattr("rackcheck_engine.detect.check_zip", reject_archive)
+    monkeypatch.setattr(zipfile.ZipFile, "namelist", names_must_not_be_enumerated)
+
+    result = detect(p)
+    assert result.format == ProjectFormat.UNSUPPORTED
+    assert "safe entry limit" in result.reason
 
 
 def test_reaper_with_bom(tmp_path: Path):

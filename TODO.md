@@ -1,4 +1,4 @@
-# TODO: Iteration 2026-09-30
+# TODO: Iteration 2026-10-06
 
 ## Completed (Phase 0 + Phase 1 + Phase 2 Core)
 
@@ -24,7 +24,7 @@
 - Exports: JSON full report, CSV full report + plugin list (SPEC-02 Section 10.3-4), CSV injection prevention
 - GUI v1 (pywebview + HTML/CSS/TypeScript): home (drop zone, recent scans), scanning progress, report view (tabs: Plugins/Tracks/Media/Project/Raw), plugin detail panel, export JSON/CSV, settings (plugin folders)
 - Engine API bridge: 7 public methods (detect, start_scan, cancel_job, get_report, get_plugin_folders, get_log_folder, export_*), path authorization (native dialogs, drop zone, recent reopens, settings storage)
-- Test suite: 277 tests passing (Phase 0: 34 tests, Phase 1: 45 tests, inventory/KB/resolve/links/report/export/GUI/CLI: 198 tests)
+- Test suite: 278 tests passing (including ZIP detection safety regression)
 
 ---
 
@@ -101,7 +101,7 @@
 
 **Iteration goal:** Complete Phase 0 skeleton and integrate Phase 1 readers to verify the architecture works.
 
-**Status:** Phase 0 + Phase 1 + Phase 2 core complete. 277 tests passing (synthetic fixtures only).
+**Status:** Phase 0 + Phase 1 + Phase 2 core complete. 278 tests passing (synthetic fixtures only).
 
 **Completed:**
 - 6 readers: format detection, Phase 1 readers (REAPER, Ableton, DAWproject), Phase 0 foundations
@@ -138,5 +138,6 @@
 
 ---
 
-**Last updated:** 2026-09-30 23:59 UTC  
+**Last updated:** 2026-10-06 11:45 UTC  
 **Contributors:** Sheldon Davidson (automation, Phase 0-2 core); phase 1 agents (REAPER/Ableton/DAWproject readers)
+

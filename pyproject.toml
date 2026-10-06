@@ -7,7 +7,7 @@ name = "rackcheck"
 description = "Scan DAW project files and list every plugin used, with links and key info."
 readme = "README.md"
 requires-python = ">=3.12"
-license = { text = "Proprietary" }
+license = { text = "MIT" }
 dynamic = ["version"]
 dependencies = []
 
@@ -46,3 +46,4 @@ src = ["src", "tests"]
 
 [tool.ruff.lint]
 select = ["E", "F", "W", "I", "B", "UP", "SIM"]
+

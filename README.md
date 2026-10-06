@@ -2,9 +2,9 @@
 
 Drop a DAW project file. See exactly what plugins it uses, which ones you have installed, and what they cost.
 
-**Current version:** Phase 0 skeleton (v0.1-alpha)  
-**Supported formats:** REAPER, Ableton Live, DAWproject (Phase 1 in progress)  
-**Platforms:** Windows 10/11, macOS 13+ (GUI in Phase 2)
+**Current version:** 0.1.0-alpha  
+**Project readers:** REAPER `.rpp`, Ableton Live `.als`, and DAWproject  
+**Platforms:** Windows and macOS plugin inventory scanning; GUI and host support still need real-machine verification
 
 ---
 
@@ -87,7 +87,8 @@ engine writers as the CLI. Settings, recent reports and the plugin inventory are
 .venv/Scripts/python -m pytest -v
 ```
 
-**All 34 tests pass** (format detection, input handling, safety checks).
+**278 automated tests pass** across readers, inventory scanning, reports, exports, CLI, and GUI bridge.
+Real projects saved by DAWs and an interactive GUI check are still needed for release validation.
 
 ---
 
@@ -158,19 +159,19 @@ Start with **SPEC-01** and **SPEC-02** for the full picture.
 - [x] Safety hardening (zip bombs, zip slip, gzip bombs)
 - [x] 34 unit tests, all passing
 
-### Phase 1 ⏳ (In Progress – Other Agents)
-- [ ] REAPER .rpp reader
-- [ ] Ableton .als reader
-- [ ] DAWproject reader
-- [ ] Crafted fixture suite
+### Phase 1 ✓ (Implementation complete; real-project validation pending)
+- [x] REAPER .rpp reader
+- [x] Ableton .als reader
+- [x] DAWproject reader
+- [x] Synthetic reader fixture suite
+- [ ] DAW-saved acceptance fixtures
 
-### Phase 2 (After Phase 1)
-- [ ] Installed plugin inventory scanner
-- [ ] Knowledge base v1 (vendor/plugin DB)
-- [ ] Plugin identity resolver
-- [ ] Report builder
-- [ ] GUI (drop zone, report tabs, export)
-- [ ] Windows and macOS installers (signed)
+### Phase 2 Core ✓ (Release work pending)
+- [x] Installed plugin inventory scanner and identity resolver
+- [x] Knowledge base v1, report builder, JSON/CSV exports
+- [x] GUI bridge and report screens
+- [ ] Real-window GUI verification
+- [ ] Signed Windows and macOS installers
 
 ### Phase 3-7 (Later)
 - Studio One, FL Studio, Cubase native readers
@@ -230,13 +231,13 @@ When Phase 2 ships, the KB repo will accept community PRs. Contributors sign off
 ## FAQ
 
 **Q: Can I use this to open projects yet?**  
-A: Phase 0 detects formats and identifies the structure. Phase 1 readers (in progress) will extract plugins. Phase 2 GUI (later) will show a full report. Today you can test the CLI on any project file to see format detection and CLI errors handling.
+A: Yes. The readers extract plugins from REAPER, Ableton, and DAWproject files. Other formats are detected but do not yet have readers.
 
 **Q: When will it support my DAW?**  
 A: See the **Development Status** section above. Priority order: REAPER, Ableton, DAWproject (Phase 1), then Studio One, FL Studio, Cubase (Phase 3), Logic Pro (Phase 4), and Pro Tools (Phase 5).
 
 **Q: Is there a GUI yet?**  
-A: No. The CLI works. The GUI is coming in Phase 2, after Phase 1 readers are done. No GUI means you're seeing the actual foundation being built rather than wireframes.
+A: Yes. The pywebview GUI and engine bridge are implemented. A real-window check on the target operating systems remains part of release validation.
 
 **Q: How is this different from Pluginventory?**  
 A: Pluginventory (macOS, Ableton-only) is excellent. Rackcheck is cross-platform, supports many DAWs (Rackcheck 5+ by Phase 3, Pluginventory 1), and includes collaboration features (compare plugins, send packs). Both serve the same community; Rackcheck is aimed at the producer workflow across DAWs and machines.
@@ -252,3 +253,4 @@ A: No. All scans stay on your machine. Optional opt-in reports (unknown plugins,
 ## Plain-language overview
 
 See [ELI5: What Rackcheck does](ELI5.md) for a simple explanation of the project and its current early-stage status.
+

@@ -14,7 +14,6 @@ from enum import StrEnum
 from pathlib import Path
 
 from .model import Confidence
-from .errors import EngineError
 from .safety import check_zip, read_gzip_prefix
 
 
@@ -187,13 +186,6 @@ def _detect_zip(path: Path) -> Detection:
             # keeps format detection under the same limits as extraction and readers.
             check_zip(zf)
             names = {n.replace("\\", "/") for n in zf.namelist()}
-    except EngineError as exc:
-        return _det(
-            path,
-            ProjectFormat.UNSUPPORTED,
-            None,
-            f"Unsafe zip archive: {exc.message}",
-        )
     except (zipfile.BadZipFile, OSError) as exc:
         return _det(path, ProjectFormat.UNSUPPORTED, None, f"Damaged zip archive: {exc}")
 

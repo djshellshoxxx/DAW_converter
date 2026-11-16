@@ -1,7 +1,7 @@
 **Rackcheck**
 
-- [Home](Home)
-- [User Guide](User-Guide)
-- [Developer Guide](Developer-Guide)
-- [Architecture and Design Rationale](Architecture-and-Design-Rationale)
-- [Codebase Map](Codebase-Map)
+- [Home](Home.md)
+- [User Guide](User-Guide.md)
+- [Developer Guide](Developer-Guide.md)
+- [Architecture and Design Rationale](Architecture-and-Design-Rationale.md)
+- [Codebase Map](Codebase-Map.md)
